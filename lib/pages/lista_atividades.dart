@@ -77,6 +77,7 @@ class _ListaAtividadesState extends State<ListaAtividades> {
               ],
             ),
           ),
+
         ],
       ),
     );

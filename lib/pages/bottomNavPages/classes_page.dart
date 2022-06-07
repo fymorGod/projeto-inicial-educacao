@@ -45,7 +45,8 @@ class _ClassesPageState extends State<ClassesPage> {
         ],
       ),
       backgroundColor: AppStyle.mainColor,
-      body: Column(
+      body:
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -91,8 +92,8 @@ class _ClassesPageState extends State<ClassesPage> {
                     margin: EdgeInsets.all(5),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
                         padding: EdgeInsets.all(0.0),
+                        primary: Colors.white
                       ),
                       child: Container(
                         child: Column(
@@ -103,7 +104,7 @@ class _ClassesPageState extends State<ClassesPage> {
                               height: 100,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(colors: [AppStyle.grientCard, AppStyle.gradientCart2]),
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
                               ),
                               child: Image.asset('assets/images/calculadora.png',),
                             ),
@@ -162,8 +163,8 @@ class _ClassesPageState extends State<ClassesPage> {
                   margin: EdgeInsets.all(5),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      padding: EdgeInsets.all(0.0),
+                        padding: EdgeInsets.all(0.0),
+                        primary: Colors.white
                     ),
                     child: Container(
                       child: Column(
@@ -174,7 +175,7 @@ class _ClassesPageState extends State<ClassesPage> {
                             height: 100,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(colors: [AppStyle.grientCard, AppStyle.gradientCart2]),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
                             ),
                             child: Image.asset('assets/images/calculadora.png',),
                           ),
@@ -233,8 +234,8 @@ class _ClassesPageState extends State<ClassesPage> {
                   margin: EdgeInsets.all(5),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      padding: EdgeInsets.all(0.0),
+                        padding: EdgeInsets.all(0.0),
+                        primary: Colors.white
                     ),
                     child: Container(
                       child: Column(
@@ -245,7 +246,7 @@ class _ClassesPageState extends State<ClassesPage> {
                             height: 100,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(colors: [AppStyle.grientCard, AppStyle.gradientCart2]),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
                             ),
                             child: Image.asset('assets/images/calculadora.png',),
                           ),
