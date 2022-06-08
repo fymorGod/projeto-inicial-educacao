@@ -16,6 +16,7 @@ class _ClassesPageState extends State<ClassesPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Container(
@@ -25,6 +26,7 @@ class _ClassesPageState extends State<ClassesPage> {
         ),
         backgroundColor: AppStyle.secondColor,
         elevation: 0,
+
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.search,
             size: 25,
@@ -49,21 +51,22 @@ class _ClassesPageState extends State<ClassesPage> {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 15,
-            decoration: BoxDecoration(
-              color: AppStyle.secondColor,
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
-              boxShadow: [
-                BoxShadow(
-                    color: AppStyle.shadowMainColor,
-                    spreadRadius: 2,
-                    blurRadius: 1,
-                    offset: Offset(0.0, 2.0)
-                ),
-              ],
+        Container(
+        width: size.width,
+        height: 20,
+        decoration: BoxDecoration(
+          color: AppStyle.secondColor,
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25), bottomRight: Radius.circular(25)),
+          boxShadow: [
+            BoxShadow(
+                color: AppStyle.shadowMainColor,
+                spreadRadius: 2,
+                blurRadius: 2,
+                offset: Offset(0.0, 2.0)
             ),
+          ],
           ),
+        ),
           Padding(
             padding: EdgeInsets.only(top: 30.0, left: 40.0),
             child: Text(
