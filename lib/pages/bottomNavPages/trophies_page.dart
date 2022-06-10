@@ -94,8 +94,8 @@ class _TrophiesPageState extends State<TrophiesPage> {
                   height: 30,),
                 ),
                 SizedBox(width: 15,),
-                Text("Melhor matéria: "),
-                Text("Geografia")
+                Text("Melhor matéria: ", style: TextStyle(color: Color(0xff495057), fontFamily: 'Roboto'),),
+                Text("Geografia", style: TextStyle(color: Color(0xff868E96), fontFamily: 'Roboto'),)
               ],
             ),
             Row(
@@ -107,8 +107,8 @@ class _TrophiesPageState extends State<TrophiesPage> {
                     height: 30,),
                 ),
                 SizedBox(width: 15,),
-                Text("Tempo na Plataforma: "),
-                Text("15 Minutos")
+                Text("Tempo na Plataforma: ", style: TextStyle(color: Color(0xff495057), fontFamily: 'Roboto'),),
+                Text("15 Minutos", style: TextStyle(color: Color(0xff868E96), fontFamily: 'Roboto'),)
               ],
             ),
             SingleChildScrollView(
@@ -130,62 +130,82 @@ class _TrophiesPageState extends State<TrophiesPage> {
                   )
             ),
             SingleChildScrollView(
-              scrollDirection: Axis.vertical,
+              scrollDirection: Axis.horizontal,
               child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.vertical,
                 child: DataTable(
-                    headingRowHeight: 32,
-                    dataRowHeight: 24,
-                    sortAscending: true,
-                    columns: [
-                  DataColumn(label: Text("Material")),
-                  DataColumn(label: Text("Frequência")),
-                  DataColumn(label: Text("Atividades")),
-                  DataColumn(label: Text("Médias")),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(5))),
+                  headingRowHeight: 22,
+                  dataRowHeight: 24,
+                  sortAscending: true,
+                  columns: [
+                  DataColumn(label: Text("Material", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
+                  DataColumn(label: Text("Frequência", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
+                  DataColumn(label: Text("Atividades", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
+                  DataColumn(label: Text("Médias", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
                 ], rows:[
                   DataRow(
+                      color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
+                        return Color(0xff9993F3).withOpacity(0.7);
+                        }),
                       cells: [
-                    DataCell(Text("Matemática")),
-                    DataCell(Text("15")),
-                    DataCell(Text("3")),
-                    DataCell(Text("9,5")),
+                    DataCell(Text("Matemática",style:TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto' ),)),
+                    DataCell(Text("15", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("3", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("9,5", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
                   ]),
                   DataRow(
+                    color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
+                      return Color(0xff9993F3).withOpacity(0.7);
+                    }),
                       cells: [
-                    DataCell(Text("Português")),
-                    DataCell(Text("15")),
-                    DataCell(Text("5")),
-                    DataCell(Text("7,5")),
+                    DataCell(Text("Português", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("15", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("5", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("7,5", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
                   ]),
                   DataRow(
+                    color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
+                      return Color(0xff9993F3).withOpacity(0.7);
+                    }),
                       cells: [
-                    DataCell(Text("Geografia")),
-                    DataCell(Text("13")),
-                    DataCell(Text("2")),
-                    DataCell(Text("10")),
+                    DataCell(Text("Geografia", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("13", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("2", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("10", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
                   ]),
                   DataRow(
+                    color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
+                      return Color(0xff9993F3).withOpacity(0.7);
+                    }),
                       cells: [
-                    DataCell(Text("História")),
-                    DataCell(Text("10")),
-                    DataCell(Text("0")),
-                    DataCell(Text("6")),
+                    DataCell(Text("História", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("10", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("0", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("6", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
                   ]),
                   DataRow(
+                      color:MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
+                        return Color(0xff9993F3).withOpacity(0.7);
+                      }), 
                       cells: [
-                    DataCell(Text("Filosofia")),
-                    DataCell(Text("8")),
-                    DataCell(Text("0")),
-                    DataCell(Text("9")),
+                    DataCell(Text("Filosofia", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("8", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("6", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
+                    DataCell(Text("9", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
                   ]),
                 ]),
               ),
             ),
-            ElevatedButton(
-
-              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color(0xff4263EB))),
-              onPressed: (){},
-              child: Text("Minhas Notas"),
+            Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(top:40),
+              child: ElevatedButton(onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                      fixedSize: Size(350, 50), primary: Color(0xff4263EB),
+                  ),
+                  child: Text('Minhas Notas', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
             )
             ],
         ),
