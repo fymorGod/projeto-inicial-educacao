@@ -41,6 +41,10 @@ dependencies:
   flutter_rounded_date_picker: 1.0.0
   video_player: ^2.4.4
   youtube_player_flutter: ^8.1.0
+  syncfusion_flutter_charts: ^20.1.59
+  data_tables: ^1.4.0
+  page_transition: ^2.0.5
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:

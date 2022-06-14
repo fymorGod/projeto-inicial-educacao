@@ -1,4 +1,5 @@
 import 'package:codeone/style/app_style.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:codeone/modules/event.dart';
@@ -16,6 +17,7 @@ class _CalanderPageState extends State<CalanderPage> {
   CalendarFormat format = CalendarFormat.month;
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
+  DateTime restDay = DateTime.now();
 
   TextEditingController _eventController = TextEditingController();
 
@@ -34,6 +36,7 @@ class _CalanderPageState extends State<CalanderPage> {
     _eventController.dispose();
     super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +84,7 @@ class _CalanderPageState extends State<CalanderPage> {
                 setState(() {
                   selectedDay = selectedDay;
                   focusedDay = focusedDay;
+                  restDay = restDay;
                 });
               },
               startingDayOfWeek: StartingDayOfWeek.sunday,
@@ -91,10 +95,11 @@ class _CalanderPageState extends State<CalanderPage> {
                   focusedDay = focusDay;
                 });
               },
-
               eventLoader: _getEventsfromDay,
-
               calendarStyle: CalendarStyle(
+                outsideDaysVisible: false,
+                defaultTextStyle: TextStyle(color: Colors.white),
+                weekendTextStyle: TextStyle(color: Colors.white),
                 isTodayHighlighted: true,
                 selectedDecoration: BoxDecoration(
                   color: Colors.blue,
@@ -110,22 +115,212 @@ class _CalanderPageState extends State<CalanderPage> {
                 leftChevronVisible: false,
                 rightChevronVisible: false,
                 formatButtonVisible: false,
-                titleCentered: false,
+                titleCentered: true,
                 formatButtonShowsNext: true,
               ),
             ),
-            ..._getEventsfromDay(selectedDay).map((Event event) => Container(
-              color: Colors.white,
-              child: ListTile(title: Text(event.title),),
-            )),
+
+            Container(
+              padding: EdgeInsets.only(left: 30),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height*0.55,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(28), topRight: Radius.circular(28)),
+                color: Colors.white,
+              ),
+              child: Stack(
+                children: <Widget> [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget> [
+
+                      Container(
+                        padding: EdgeInsets.only(top:20),
+                        child: Row(
+                          children: <Widget> [
+                            Container(
+                              margin: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Color(0xff7CD9D9),
+                                      Color(0xff1db7b7),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)
+                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              width: MediaQuery.of(context).size.width*0.8,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget> [
+                                  Text("Aula de português", style: (TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                                  ),),
+                                  SizedBox(height: 10,),
+                                  Text("Revisão sobre acentuação", style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal
+                                  ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top:20),
+                        child: Row(
+                          children: <Widget> [
+                            Container(
+                              margin: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Color(0xff7CD9D9),
+                                      Color(0xff1db7b7),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)
+                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              width: MediaQuery.of(context).size.width*0.8,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget> [
+                                  Text("Aula de matemática", style: (TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                                  ),),
+                                  SizedBox(height: 10,),
+                                  Text("Revisão", style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal
+                                  ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top:20),
+                        child: Row(
+                          children: <Widget> [
+
+                            Container(
+                              margin: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Color(0xff7CD9D9),
+                                      Color(0xff1db7b7),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(15)
+                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              width: MediaQuery.of(context).size.width*0.8,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget> [
+                                  Text("Aula de Inglês", style: (TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                                  ),),
+                                  SizedBox(height: 10,),
+                                  Text("Fazer atividade de cores", style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal
+                                  ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top:20),
+                        child: Row(
+                          children: <Widget> [
+
+                            Container(
+                              margin: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Color(0xff7CD9D9),
+                                      Color(0xff1db7b7),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(15)
+                              ),
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              width: MediaQuery.of(context).size.width*0.8,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget> [
+                                  Text("Aula de Inglês", style: (TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                                  ),),
+                                  SizedBox(height: 10,),
+                                  Text("Fazer atividade de cores", style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal
+                                  ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text("Add Event"),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(18))
+            ),
+            title: Text("Adicionar lembrete"),
             content: TextFormField(
               controller: _eventController,
             ),
@@ -160,8 +355,11 @@ class _CalanderPageState extends State<CalanderPage> {
             ],
           ),
         ),
-        label: Text("Add Event"),
-        icon: Icon(Icons.add),
+        label: Text("+", style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),),
+
       ),
 
     );

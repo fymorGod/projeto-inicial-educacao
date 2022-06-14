@@ -2,6 +2,7 @@ import 'package:codeone/pages/lista_atividades.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../style/app_style.dart';
 
@@ -139,8 +140,11 @@ class _ClassesPageState extends State<ClassesPage> {
                         ),
                       ),
                       onPressed: (){
-                        Navigator.push(context, 
-                        MaterialPageRoute(builder: (context) => ListaAtividades())
+                        Navigator.push(context, PageTransition(
+                          child: ListaAtividades(),
+                          type:  PageTransitionType.fade,
+                          duration: const Duration(milliseconds: 10)
+                           )
                         );
                       },
                     ),
@@ -210,8 +214,11 @@ class _ClassesPageState extends State<ClassesPage> {
                       ),
                     ),
                     onPressed: (){
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ListaAtividades())
+                      Navigator.push(context, PageTransition(
+                          child: ListaAtividades(),
+                          type:  PageTransitionType.fade,
+                          duration: const Duration(milliseconds: 10)
+                      )
                       );
                     },
                   ),
@@ -281,8 +288,11 @@ class _ClassesPageState extends State<ClassesPage> {
                       ),
                     ),
                     onPressed: (){
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ListaAtividades())
+                      Navigator.push(context, PageTransition(
+                          child: ListaAtividades(),
+                          type:  PageTransitionType.fade,
+                          duration: const Duration(milliseconds: 10)
+                      )
                       );
                     },
                   ),

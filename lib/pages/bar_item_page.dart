@@ -1,3 +1,4 @@
+import 'package:codeone/pages/bottomNavPages/conquistas.dart';
 import 'package:codeone/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
@@ -18,7 +19,7 @@ class _BarItemPageState extends State<BarItemPage> {
     HomePage(),
     AnotationPage(),
     ClassesPage(),
-    TrophiesPage(),
+    Conquistas(),
     CalanderPage()
   ];
 
