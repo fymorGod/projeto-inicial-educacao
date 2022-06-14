@@ -1,45 +1,17 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:codeone/style/app_style.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
-
-
-class TrophiesPage extends StatefulWidget {
-  const TrophiesPage({Key? key}) : super(key: key);
-
-
-
+class Conquistas extends StatefulWidget {
+  const Conquistas({Key? key}) : super(key: key);
 
   @override
-  State<TrophiesPage> createState() => _TrophiesPageState();
+  State<Conquistas> createState() => _ConquistasState();
 }
 
-class _TrophiesPageState extends State<TrophiesPage> {
-  late List<_ChartData> data;
-  late TooltipBehavior _tooltip;
-
-  @override
-  void initState() {
-    data = [
-      _ChartData('Mat', 8.5, Colors.orange),
-      _ChartData('Port', 7, Colors.teal),
-      _ChartData('Geo', 10, Colors.red),
-      _ChartData('Hist', 6.4, Colors.indigo),
-      _ChartData('Filo', 6, Colors.purple),
-      _ChartData('Ing', 9.9, Colors.deepOrange),
-      _ChartData('Fis', 5.5, Colors.green),
-      _ChartData('Ed.Fis', 10, Colors.blue),
-      _ChartData('Info', 10, Colors.brown),
-      _ChartData('Bio', 7, Colors.grey),
-      _ChartData('Fis II', 8.3, Colors.cyanAccent),
-      _ChartData('Mat II', 7, Colors.cyan),
-
-    ];
-    _tooltip = TooltipBehavior(enable: true);
-    super.initState();
-  }
-
-
+class _ConquistasState extends State<Conquistas> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -70,159 +42,377 @@ class _TrophiesPageState extends State<TrophiesPage> {
           ),
           ),
         ],
-
       ),
-      backgroundColor: Color(0xfff1f3f5),
-      body: Container(
+      backgroundColor: AppStyle.mainColor,
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10 ),
-              child: Container(
-                padding: EdgeInsets.only(left: 12),
-                child: Text("Minhas Notas", style: TextStyle(color: Colors.deepPurple,
-            fontSize: 18,
-            fontWeight: FontWeight.bold, fontFamily: "Roboto"),),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
-                Container(
-                  child: Image.asset('assets/images/grafico.png',
-                  width: 30,
-                  height: 30,),
-                ),
-                SizedBox(width: 15,),
-                Text("Melhor matéria: ", style: TextStyle(color: Color(0xff495057), fontFamily: 'Roboto'),),
-                Text("Geografia", style: TextStyle(color: Color(0xff868E96), fontFamily: 'Roboto'),)
-              ],
-            ),
-            Row(
-              children: [
-                Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20)),
-                Container(
-                  child: Image.asset('assets/images/relogio.png',
-                    width: 30,
-                    height: 30,),
-                ),
-                SizedBox(width: 15,),
-                Text("Tempo na Plataforma: ", style: TextStyle(color: Color(0xff495057), fontFamily: 'Roboto'),),
-                Text("15 Minutos", style: TextStyle(color: Color(0xff868E96), fontFamily: 'Roboto'),)
-              ],
-            ),
-            SingleChildScrollView(
-              padding: EdgeInsets.symmetric(vertical: 10.0),
-              child:SfCartesianChart(
-                    primaryXAxis: CategoryAxis(maximum: 12, minimum: 0),
-                    primaryYAxis: NumericAxis(minimum: 0, maximum: 10, interval: 2),
-                    tooltipBehavior: _tooltip,
-                      series: <ChartSeries<_ChartData, String>>[
-                        ColumnSeries<_ChartData, String>(
-                          dataSource: data,
-                          xValueMapper: (_ChartData data, _) => data.x,
-                          yValueMapper: (_ChartData data, _) => data.y,
-                          pointColorMapper:(_ChartData data, _) => data.color,
-                          borderWidth: 10,
-                          name: 'Desempenho',
-                          )
-                      ]
-                  )
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: DataTable(
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(5))),
-                  headingRowHeight: 22,
-                  dataRowHeight: 24,
-                  sortAscending: true,
-                  columns: [
-                  DataColumn(label: Text("Material", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
-                  DataColumn(label: Text("Frequência", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
-                  DataColumn(label: Text("Atividades", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
-                  DataColumn(label: Text("Médias", style: TextStyle(fontSize: 16, color: Color(0xff868E96), fontFamily: 'Roboto'),)),
-                ], rows:[
-                  DataRow(
-                      color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
-                        return Color(0xff9993F3).withOpacity(0.7);
-                        }),
-                      cells: [
-                    DataCell(Text("Matemática",style:TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto' ),)),
-                    DataCell(Text("15", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("3", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("9,5", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                  ]),
-                  DataRow(
-                    color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
-                      return Color(0xff9993F3).withOpacity(0.7);
-                    }),
-                      cells: [
-                    DataCell(Text("Português", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("15", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("5", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("7,5", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                  ]),
-                  DataRow(
-                    color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
-                      return Color(0xff9993F3).withOpacity(0.7);
-                    }),
-                      cells: [
-                    DataCell(Text("Geografia", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("13", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("2", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("10", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                  ]),
-                  DataRow(
-                    color: MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
-                      return Color(0xff9993F3).withOpacity(0.7);
-                    }),
-                      cells: [
-                    DataCell(Text("História", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("10", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("0", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("6", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                  ]),
-                  DataRow(
-                      color:MaterialStateProperty.resolveWith<Color>((Set<MaterialState>states) {
-                        return Color(0xff9993F3).withOpacity(0.7);
-                      }), 
-                      cells: [
-                    DataCell(Text("Filosofia", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("8", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("6", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                    DataCell(Text("9", style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7), fontFamily: 'Roboto'),)),
-                  ]),
-                ]),
+            Container(
+              height: 15,
+              decoration: BoxDecoration(
+                color: AppStyle.secondColor,
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+                boxShadow: [
+                  BoxShadow(
+                      color: AppStyle.shadowMainColor,
+                      spreadRadius: 2,
+                      blurRadius: 1,
+                      offset: Offset(0.0, 2.0)
+                  ),
+                ],
               ),
             ),
             Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top:40),
-              child: ElevatedButton(onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                      fixedSize: Size(350, 50), primary: Color(0xff4263EB),
-                  ),
-                  child: Text('Minhas Notas', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
-            )
-            ],
+              padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+              child: Text(
+                "Conquistas",
+                style: GoogleFonts.roboto(
+                    color: AppStyle.titleColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: AppStyle.shadowMainColor,
+                          spreadRadius: .5,
+                          blurRadius: .5,
+                          offset: Offset(0.0, 1.0)
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset("assets/images/filosofo.png",
+                        height: 110,
+                      ),
+                    ),
+                    SizedBox(
+                        width: 20.0
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              child: Text(
+                                "Filósofo 3",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFF364FC7)
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 65),
+
+                          ],
+                        ),
+
+                        SizedBox(
+                          height: 45,
+                          width: 160,
+                          child: AutoSizeText(
+
+                            "Matenha a média maior que 6 em filosofia",
+                            style: GoogleFonts.roboto(
+                              fontSize: 16,
+                                color: Colors.black38
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20.0,),
+                        Container(
+                          width: 210,
+                          child: LinearPercentIndicator(
+                            padding: EdgeInsets.zero,
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 18,
+                            percent: 0.5,
+                            progressColor: Colors.indigoAccent,
+                            backgroundColor: Colors.indigo.shade200,
+                            barRadius: Radius.circular(20),
+                            center: Text("50%",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: AppStyle.shadowMainColor,
+                          spreadRadius: .5,
+                          blurRadius: .5,
+                          offset: Offset(0.0, 1.0)
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset("assets/images/sabe-tudo.png",
+                        height: 110,
+                      ),
+                    ),
+                    SizedBox(
+                        width: 20.0
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              child: Text(
+                                "Sabe tudo",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFFEF8729)
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 65),
+
+                          ],
+                        ),
+
+                        SizedBox(
+                          width: 190,
+                          height: 45,
+                          child: AutoSizeText(
+                            textAlign: TextAlign.start,
+                            "Acerte todas as questões na primeiratentativa em 5 atividades diferentes",
+                            style: GoogleFonts.roboto(
+                                color: Colors.black38,
+                                fontSize: 16
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20.0,),
+                        Container(
+                          width: 210,
+                          child: LinearPercentIndicator(
+                            padding: EdgeInsets.zero,
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 18,
+                            percent: 0.65,
+                            progressColor: Color(0xFFEF8729),
+                            backgroundColor: Colors.orange.shade200,
+                            barRadius: Radius.circular(20),
+                            center: Text("65%",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: AppStyle.shadowMainColor,
+                          spreadRadius: .5,
+                          blurRadius: .5,
+                          offset: Offset(0.0, 1.0)
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset("assets/images/mestre-geografia.png",
+                        height: 110,
+                      ),
+                    ),
+                    SizedBox(
+                        width: 20.0
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 45,
+                              width: 180,
+                              child: AutoSizeText(
+                                "Mestre em Geografia",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFF43D9A2)
+                                ),
+                                maxLines: 2,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Container(
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            "Acerte todas as questões\nda matéria de geografia",
+                            style: GoogleFonts.roboto(
+                                color: Colors.black38
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20.0,),
+                        Container(
+                          width: 210,
+                          child: LinearPercentIndicator(
+                            padding: EdgeInsets.zero,
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 18,
+                            percent: 0.3,
+                            progressColor: Color(0xFF43D9A2),
+                            backgroundColor: Colors.green.shade200,
+                            barRadius: Radius.circular(20),
+                            center: Text("30%",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: AppStyle.shadowMainColor,
+                          spreadRadius: .5,
+                          blurRadius: .5,
+                          offset: Offset(0.0, 1.0)
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset("assets/images/rubi.png",
+                        height: 110,
+                      ),
+                    ),
+                    SizedBox(
+                        width: 20.0
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              child: Text(
+                                "Rubi",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFFC13232)
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 110),
+
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Container(
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            "Alcance a divisão Rubi",
+                            style: GoogleFonts.roboto(
+                                color: Colors.black38
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20.0,),
+                        Container(
+                          width: 210,
+                          child: LinearPercentIndicator(
+                            padding: EdgeInsets.zero,
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 18,
+                            percent: 0.8,
+                            progressColor: Color(0xFFC13232),
+                            backgroundColor: Colors.red.shade200,
+                            barRadius: Radius.circular(20),
+                            center: Text("80%",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
-
     );
   }
 }
-
-class _ChartData {
-  _ChartData(this.x, this.y, this.color);
-  final String x;
-  final double y;
-  final Color color;
-
-
-}
-
-
-

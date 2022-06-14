@@ -85,8 +85,8 @@ class _CalanderPageState extends State<CalanderPage> {
                   selectedDay = selectedDay;
                   focusedDay = focusedDay;
                   restDay = restDay;
-                  });
-                },
+                });
+              },
               startingDayOfWeek: StartingDayOfWeek.sunday,
               daysOfWeekVisible: true,
               onDaySelected: (DateTime selectDay, DateTime focusDay) {
@@ -108,7 +108,7 @@ class _CalanderPageState extends State<CalanderPage> {
                 selectedTextStyle: TextStyle(color: Colors.white),
               ),
               selectedDayPredicate: (DateTime date) {
-                  return isSameDay(selectedDay, date);
+                return isSameDay(selectedDay, date);
               },
               headerStyle: HeaderStyle(
                 titleTextStyle: TextStyle(color: Colors.white),
@@ -318,7 +318,7 @@ class _CalanderPageState extends State<CalanderPage> {
           context: context,
           builder: (context) => AlertDialog(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(18))
+                borderRadius: BorderRadius.all(Radius.circular(18))
             ),
             title: Text("Adicionar lembrete"),
             content: TextFormField(

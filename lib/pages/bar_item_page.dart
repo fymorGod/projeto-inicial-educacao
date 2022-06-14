@@ -18,7 +18,7 @@ class _BarItemPageState extends State<BarItemPage> {
     HomePage(),
     AnotationPage(),
     ClassesPage(),
-    TrophiesPage(),
+    Conquistas(),
     CalanderPage()
   ];
 
