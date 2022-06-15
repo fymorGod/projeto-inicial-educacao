@@ -68,7 +68,7 @@ class _ConfigPageState extends State<ConfigPage> {
                   child: Column(
                     children: [
                       Center(
-                        child: Image.asset('assets/images/avatarg.png',
+                        child: Image.asset('assets/images/avatar.png',
                           height: 100,
                           width: 100,),
                       ),
