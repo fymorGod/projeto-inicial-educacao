@@ -1,6 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:codeone/pages/bottomNavPages/perfil_page.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class Conquistas extends StatefulWidget {
@@ -35,7 +38,11 @@ class _ConquistasState extends State<Conquistas> {
             color: Colors.white,
           ),
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.person,
+          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+              child: PerfilPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 10)
+          )), icon: Icon(Icons.person,
             size: 25,
             color: Colors.white,
           ),
@@ -107,41 +114,28 @@ class _ConquistasState extends State<Conquistas> {
                            child: Text(
                                "Filósofo 3",
                              style: GoogleFonts.roboto(
-                               fontSize: 22,
+                               fontSize: 18,
                                fontWeight: FontWeight.w700,
                                color: Color(0xFF364FC7)
                              ),
                            ),
                          ),
-                         SizedBox(width: 65),
-                         Container(
-                           margin: EdgeInsets.only(bottom: 20.0),
-                           width: 50,
-                           padding: EdgeInsets.only(left: 5.0, right: 4.0),
-                           decoration: BoxDecoration(
-                               color: AppStyle.labelFilosofo,
-                               borderRadius: BorderRadius.circular(8)
-                           ),
-                           child: Text(
-                               "4.75/6",
-                             style: GoogleFonts.roboto(
-                               color: Colors.white
-                             ),
-                           ),
-                         )
                        ],
                      ),
                       SizedBox(height: 10),
-                      Container(
-                        child: Text(
+                      SizedBox(
+                        height: 45,
+                        width: 180,
+                        child: AutoSizeText(
                           textAlign: TextAlign.start,
-                          "Matenha a média maior\nque 6 em filosofia",
+                          "Matenha a média maior que 6 em filosofia",
                           style: GoogleFonts.roboto(
-                            color: Colors.black38
+                            color: Colors.black38,
+                            fontSize: 16
                           ),
                         ),
                       ),
-                      SizedBox(height: 20.0,),
+                      SizedBox(height: 10.0,),
                       Container(
                         width: 210,
                         child: LinearPercentIndicator(
@@ -199,8 +193,10 @@ class _ConquistasState extends State<Conquistas> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            child: Text(
+                          SizedBox(
+                            height: 30,
+                            width: 180,
+                            child: AutoSizeText(
                               "Sabe tudo",
                               style: GoogleFonts.roboto(
                                   fontSize: 22,
@@ -209,36 +205,21 @@ class _ConquistasState extends State<Conquistas> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 65),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 20.0),
-                            width: 50,
-                            padding: EdgeInsets.only(left: 5.0, right: 4.0),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFEF8729),
-                                borderRadius: BorderRadius.circular(8)
-                            ),
-                            child: Text(
-                              "4.75/6",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.white
-                              ),
-                            ),
-                          )
                         ],
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        child: Text(
+                      SizedBox(
+                        height: 45,
+                        width: 180,
+                        child: AutoSizeText(
                           textAlign: TextAlign.start,
-                          "Acerte todas as questões na primeira\ntentativa em 5 atividades diferentes",
+                          "Acerte todas as questões na primeira tentativa em 5 atividades diferentes",
                           style: GoogleFonts.roboto(
                               color: Colors.black38,
-                              fontSize: 12
+                              fontSize: 16
                           ),
                         ),
                       ),
-                      SizedBox(height: 20.0,),
+                      SizedBox(height: 10.0,),
                       Container(
                         width: 210,
                         child: LinearPercentIndicator(
@@ -296,45 +277,34 @@ class _ConquistasState extends State<Conquistas> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            child: Text(
+                          SizedBox(
+                            height: 35,
+                            width: 180,
+                            child: AutoSizeText(
                               "Mestre em Geografia",
                               style: GoogleFonts.roboto(
-                                  fontSize: 16,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.w700,
                                   color: Color(0xFF43D9A2)
                               ),
                             ),
                           ),
-                          SizedBox(width: 10),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 20.0),
-                            width: 50,
-                            padding: EdgeInsets.only(left: 5.0, right: 4.0),
-                            decoration: BoxDecoration(
-                                color: Color(0xFF43D9A2),
-                                borderRadius: BorderRadius.circular(8)
-                            ),
-                            child: Text(
-                              "4.75/6",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.white
-                              ),
-                            ),
-                          )
+
                         ],
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        child: Text(
+                      SizedBox(
+                        height: 45,
+                        width: 180,
+                        child: AutoSizeText(
                           textAlign: TextAlign.start,
-                          "Acerte todas as questões\nda matéria de geografia",
+                          "Acerte todas as questões da matéria de geografia",
                           style: GoogleFonts.roboto(
-                              color: Colors.black38
+                              color: Colors.black38,
+                            fontSize: 16
                           ),
                         ),
                       ),
-                      SizedBox(height: 20.0,),
+                      SizedBox(height: 10.0),
                       Container(
                         width: 210,
                         child: LinearPercentIndicator(
@@ -392,8 +362,10 @@ class _ConquistasState extends State<Conquistas> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            child: Text(
+                          SizedBox(
+                            height: 35,
+                            width: 180,
+                            child: AutoSizeText(
                               "Rubi",
                               style: GoogleFonts.roboto(
                                   fontSize: 22,
@@ -402,27 +374,12 @@ class _ConquistasState extends State<Conquistas> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 110),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 20.0),
-                            width: 50,
-                            padding: EdgeInsets.only(left: 5.0, right: 4.0),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFC13232),
-                                borderRadius: BorderRadius.circular(8)
-                            ),
-                            child: Text(
-                              "4.75/6",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.white
-                              ),
-                            ),
-                          )
                         ],
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        child: Text(
+                      SizedBox(
+                        height: 45,
+                        width: 180,
+                        child: AutoSizeText(
                           textAlign: TextAlign.start,
                           "Alcance a divisão Rubi",
                           style: GoogleFonts.roboto(

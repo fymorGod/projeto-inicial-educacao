@@ -1,6 +1,8 @@
+import 'package:codeone/pages/bottomNavPages/perfil_page.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:codeone/modules/event.dart';
 
@@ -62,7 +64,11 @@ class _CalanderPageState extends State<CalanderPage> {
             color: Colors.white,
           ),
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.person,
+          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+              child: PerfilPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 10)
+          )), icon: Icon(Icons.person,
             size: 25,
             color: Colors.white,
           ),

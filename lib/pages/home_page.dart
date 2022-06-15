@@ -1,7 +1,12 @@
+
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+
+import 'bottomNavPages/perfil_page.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,7 +47,11 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             ),
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.person,
+          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+              child: PerfilPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 10)
+          )), icon: Icon(Icons.person,
             size: 25,
             color: Colors.white,
           ),
@@ -95,8 +104,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Container(
                           margin: EdgeInsets.only(left: 120.0, top: 10.0),
-                          child:  Text("Assista as aulas e faça as atividades para você subir no ranking!",
+                          child:  Text("Assista as aulas e faça as atividades para você subir no Pódio!",
                             style: TextStyle(
+                              fontWeight: FontWeight.w500,
                                 color: Colors.white
                             ),
                           ),
@@ -134,22 +144,46 @@ class _HomePageState extends State<HomePage> {
                      ),
                      Container(
                        height: 120,
-                       child: ListView.builder(
-                           scrollDirection: Axis.horizontal,
-                           padding: EdgeInsets.only(left: 30, right: 3),
-                           itemCount: 6,
-                           itemBuilder: (context, index) => Container(
+                       child: ListView(
+                         scrollDirection: Axis.horizontal,
+                         padding: EdgeInsets.only(left: 30, right: 3),
+                         children: [
+                           Container(
                              height: 125,
                              width: 170,
-                             decoration: BoxDecoration(
-                                 borderRadius: BorderRadius.circular(12),
-                                 color: Colors.orange
-                             ),
+
                              margin: EdgeInsets.all(5),
                              child: Center(
-                               child: Text("Card $index"),
+                               child: Image.asset('assets/images/biomas.png'),
                              ),
-                           )
+                           ),
+                           Container(
+                             height: 125,
+                             width: 170,
+                             margin: EdgeInsets.all(5),
+                             child: Center(
+                               child: Image.asset('assets/images/angulos.png'),
+                             ),
+                           ),
+                           Container(
+                             height: 125,
+                             width: 170,
+
+                             margin: EdgeInsets.all(5),
+                             child: Center(
+                               child: Image.asset('assets/images/adverbio.png'),
+                             ),
+                           ),
+
+                           Container(
+                             width: 185,
+                             child: Center(
+                               child: Image.asset('assets/images/banner2.png',
+                               height: 170,
+                               ),
+                             ),
+                           ),
+                         ],
                        ),
                      ),
 
@@ -162,25 +196,49 @@ class _HomePageState extends State<HomePage> {
                          )
                        ),
                      ),
-
                      Container(
                        height: 120,
-                       child: ListView.builder(
+                       child: ListView(
                            scrollDirection: Axis.horizontal,
                            padding: EdgeInsets.only(left: 30, right: 3),
-                           itemCount: 6,
-                           itemBuilder: (context, index) => Container(
-                             height: 125,
-                             width: 170,
-                             decoration: BoxDecoration(
-                                 borderRadius: BorderRadius.circular(12),
-                                 color: Colors.indigoAccent
+                           children: [
+                             Container(
+                               height: 125,
+                               width: 170,
+
+                               margin: EdgeInsets.all(5),
+                               child: Center(
+                                 child: Image.asset('assets/images/adverbio.png'),
+                               ),
                              ),
-                             margin: EdgeInsets.all(5),
-                             child: Center(
-                               child: Text("Card $index"),
+                             Container(
+                               width: 185,
+                               child: Center(
+                                 child: Image.asset('assets/images/banner2.png',
+                                 height: 165,
+                               ),
+                               ),
                              ),
-                           )
+                             Container(
+                               height: 125,
+                               width: 170,
+                               margin: EdgeInsets.all(5),
+                               child: Center(
+                                 child: Image.asset('assets/images/angulos.png'),
+                               ),
+                             ),
+                             Container(
+                               height: 125,
+                               width: 170,
+
+                               margin: EdgeInsets.all(5),
+                               child: Center(
+                                 child: Image.asset('assets/images/biomas.png'),
+                               ),
+                             ),
+
+
+                           ],
                        ),
                      ),
 

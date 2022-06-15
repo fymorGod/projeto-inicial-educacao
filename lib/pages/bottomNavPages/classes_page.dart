@@ -1,3 +1,4 @@
+import 'package:codeone/pages/bottomNavPages/perfil_page.dart';
 import 'package:codeone/pages/lista_atividades.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +39,11 @@ class _ClassesPageState extends State<ClassesPage> {
             color: Colors.white,
           ),
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.person,
+          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+              child: PerfilPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 10)
+          )), icon: Icon(Icons.person,
             size: 25,
             color: Colors.white,
           ),
