@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:list_tile_switch/list_tile_switch.dart';
 
 class ConfigPage extends StatefulWidget {
   const ConfigPage({Key? key}) : super(key: key);
@@ -11,9 +12,14 @@ class ConfigPage extends StatefulWidget {
 }
 
 class _ConfigPageState extends State<ConfigPage> {
+  bool _toggled1 = false;
+  bool _toggled2 = false;
+  bool _toggled3 = false;
 
   @override
   Widget build(BuildContext context) {
+    final ValueChanged<bool>? onChanged;
+    var _isSelected = false;
     return Scaffold(
       resizeToAvoidBottomInset : false,
         appBar: AppBar(
@@ -133,20 +139,8 @@ class _ConfigPageState extends State<ConfigPage> {
                             ),
                             child: Text('Sair', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        alignment: Alignment.center,
-                        child: ElevatedButton(onPressed: () => Navigator.push(context, PageTransition(
-                            child: const ConfigPage(),
-                            type: PageTransitionType.fade,
-                            duration: const Duration(milliseconds: 10)
-                        )),
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                              fixedSize: Size(350, 50), primary: Color(0xff00A1A1),
-                            ),
-                            child: Text('Sair', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
-                      ),
+
+                      //Switch
                       Container(
                         padding: EdgeInsets.only(top: 20),
                         child: Text("Geral", style: TextStyle(
@@ -155,48 +149,57 @@ class _ConfigPageState extends State<ConfigPage> {
                           fontWeight: FontWeight.bold
                         ),),
                       ),
+                      SizedBox(height: 20,),
                       Container(
-                        margin: EdgeInsets.only(top: 20),
-                        alignment: Alignment.center,
-                        child: ElevatedButton(onPressed: () => Navigator.push(context, PageTransition(
-                            child: const ConfigPage(),
-                            type: PageTransitionType.fade,
-                            duration: const Duration(milliseconds: 10)
-                        )),
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                              fixedSize: Size(350, 50), primary: Color(0xff00A1A1),
-                            ),
-                            child: Text('Sair', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
+                        padding: EdgeInsets.only(left: 10),
+                        width: 350,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Color(0xff00B7B7),
+                          borderRadius: BorderRadius.all(Radius.circular(18))
+                        ),
+
+                        child: SwitchListTile(
+                          title: const Text("Notificação", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            value: _toggled1,
+                            onChanged: (value){
+                            setState(()=>_toggled1=value);
+                            },),
                       ),
+                      SizedBox(height: 20,),
                       Container(
-                        margin: EdgeInsets.only(top: 20),
-                        alignment: Alignment.center,
-                        child: ElevatedButton(onPressed: () => Navigator.push(context, PageTransition(
-                            child: const ConfigPage(),
-                            type: PageTransitionType.fade,
-                            duration: const Duration(milliseconds: 10)
-                        )),
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                              fixedSize: Size(350, 50), primary: Color(0xff00A1A1),
-                            ),
-                            child: Text('Sair', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
+                        padding: EdgeInsets.only(left: 10),
+                        width: 350,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Color(0xff00B7B7),
+                            borderRadius: BorderRadius.all(Radius.circular(18))
+                        ),
+                        child: SwitchListTile(
+                          title: const Text("Efeitos Sonoros", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                          value: _toggled2,
+                          onChanged: (value){
+                            setState(()=>_toggled2=value);
+                          },),
                       ),
+                      SizedBox(height: 20,),
                       Container(
-                        margin: EdgeInsets.only(top: 20),
-                        alignment: Alignment.center,
-                        child: ElevatedButton(onPressed: () => Navigator.push(context, PageTransition(
-                            child: const ConfigPage(),
-                            type: PageTransitionType.fade,
-                            duration: const Duration(milliseconds: 10)
-                        )),
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                              fixedSize: Size(350, 50), primary: Color(0xff00A1A1),
-                            ),
-                            child: Text('Sair', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
+                        padding: EdgeInsets.only(left: 10),
+                        width: 350,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Color(0xff00B7B7),
+                            borderRadius: BorderRadius.all(Radius.circular(18))
+                        ),
+                        child: SwitchListTile(
+                          title: const Text("Vibração", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                          value: _toggled3,
+                          onChanged: (value){
+                            setState(()=>_toggled3=value);
+                          },),
                       ),
+
+                      //botão clicável
                       Container(
                         padding: EdgeInsets.only(top: 20),
                         child: Text("Privacidade", style: TextStyle(
