@@ -1,5 +1,6 @@
 import 'package:codeone/pages/config_page.dart';
 import 'package:codeone/pages/minhas_notas.dart';
+import 'package:codeone/pages/quali_page.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -248,7 +249,12 @@ class _PerfilPageState extends State<PerfilPage> {
           Container(
 
             alignment: Alignment.center,
-            child: ElevatedButton(onPressed: () {},
+            child: ElevatedButton(
+                onPressed: () => Navigator.push(context, PageTransition(
+                    child: const QualiPage(),
+                    type: PageTransitionType.fade,
+                    duration: const Duration(milliseconds: 10)
+                )),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
                   fixedSize: Size(350, 50), primary: Color(0xff00B7B7),

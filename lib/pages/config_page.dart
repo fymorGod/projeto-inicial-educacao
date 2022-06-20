@@ -1,4 +1,5 @@
 import 'package:codeone/pages/idoma_page.dart';
+import 'package:codeone/pages/password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -116,7 +117,7 @@ class _ConfigPageState extends State<ConfigPage> {
                     alignment: Alignment.center,
                     child: ElevatedButton(
                         onPressed: () => Navigator.push(context, PageTransition(
-                        child: const ConfigPage(),
+                        child: const PasswordPage(),
                         type: PageTransitionType.fade,
                         duration: const Duration(milliseconds: 10)
                     )),
