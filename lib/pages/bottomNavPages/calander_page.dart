@@ -1,8 +1,6 @@
-import 'package:codeone/pages/bottomNavPages/perfil_page.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:codeone/modules/event.dart';
 
@@ -43,7 +41,6 @@ class _CalanderPageState extends State<CalanderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.secondColor,
       appBar: AppBar(
         title: Container(
           width: 120,
@@ -64,27 +61,36 @@ class _CalanderPageState extends State<CalanderPage> {
             color: Colors.white,
           ),
           ),
-          IconButton(onPressed: () => Navigator.push(context, PageTransition(
-              child: PerfilPage(),
-              type: PageTransitionType.fade,
-              duration: const Duration(milliseconds: 10)
-          )), icon: Icon(Icons.person,
+          IconButton(onPressed: (){}, icon: Icon(Icons.person,
             size: 25,
             color: Colors.white,
           ),
           ),
         ],
-
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children:  [
-            TableCalendar(
+      backgroundColor: AppStyle.mainColor,
+      body: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                boxShadow: [BoxShadow(
+                    color: AppStyle.shadowMainColor,
+                    spreadRadius: 2,
+                    blurRadius: 1,
+                    offset: Offset(0.0, 2.0)
+                ),],
+                color: AppStyle.secondColor,
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(28),
+                    bottomLeft: Radius.circular(28)
+                )),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+
+            child: TableCalendar(
               locale: 'pt_BR',
               focusedDay: selectedDay,
               firstDay: DateTime(1900),
-              lastDay: DateTime(2200),
+              lastDay: DateTime(2500),
               calendarFormat: format,
               onFormatChanged: (CalendarFormat _format) {
                 setState(() {
@@ -103,271 +109,219 @@ class _CalanderPageState extends State<CalanderPage> {
               },
               eventLoader: _getEventsfromDay,
               calendarStyle: CalendarStyle(
-                outsideDaysVisible: false,
-                defaultTextStyle: TextStyle(color: Colors.white),
-                weekendTextStyle: TextStyle(color: Colors.white),
-                isTodayHighlighted: true,
-                selectedDecoration: BoxDecoration(
-                  color: Colors.blue,
-                  shape: BoxShape.circle,
-                ),
-                selectedTextStyle: TextStyle(color: Colors.white),
+                  outsideDaysVisible: false,
+                  defaultTextStyle: TextStyle(color: Colors.white),
+                  weekendTextStyle: TextStyle(color: Colors.white),
+                  isTodayHighlighted: true,
+                  selectedDecoration: BoxDecoration(
+                    color: Color(0xff22C1C1),
+                    shape: BoxShape.circle,
+                  ),
+                  selectedTextStyle: TextStyle(color: Colors.white)
               ),
               selectedDayPredicate: (DateTime date) {
                 return isSameDay(selectedDay, date);
               },
               headerStyle: HeaderStyle(
-                titleTextStyle: TextStyle(color: Colors.white),
+                titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
                 leftChevronVisible: false,
                 rightChevronVisible: false,
                 formatButtonVisible: false,
-                titleCentered: true,
+                titleCentered: false,
                 formatButtonShowsNext: true,
               ),
             ),
-
-            Container(
-              padding: EdgeInsets.only(left: 30),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height*0.55,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(28), topRight: Radius.circular(28)),
-                color: Colors.white,
-              ),
-              child: Stack(
-                children: <Widget> [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget> [
-
-                      Container(
-                        padding: EdgeInsets.only(top:20),
-                        child: Row(
-                          children: <Widget> [
-                            Container(
-                              margin: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Color(0xff7CD9D9),
-                                      Color(0xff1db7b7),
-                                    ],
-                                  ),
-                                  borderRadius: BorderRadius.circular(20)
-                              ),
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              width: MediaQuery.of(context).size.width*0.8,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget> [
-                                  Text("Aula de português", style: (TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                                  ),),
-                                  SizedBox(height: 10,),
-                                  Text("Revisão sobre acentuação", style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal
-                                  ),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top:20),
-                        child: Row(
-                          children: <Widget> [
-                            Container(
-                              margin: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Color(0xff7CD9D9),
-                                      Color(0xff1db7b7),
-                                    ],
-                                  ),
-                                  borderRadius: BorderRadius.circular(20)
-                              ),
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              width: MediaQuery.of(context).size.width*0.8,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget> [
-                                  Text("Aula de matemática", style: (TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                                  ),),
-                                  SizedBox(height: 10,),
-                                  Text("Revisão", style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal
-                                  ),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top:20),
-                        child: Row(
-                          children: <Widget> [
-
-                            Container(
-                              margin: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Color(0xff7CD9D9),
-                                      Color(0xff1db7b7),
-                                    ],
-                                  ),
-                                  borderRadius: BorderRadius.circular(15)
-                              ),
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              width: MediaQuery.of(context).size.width*0.8,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget> [
-                                  Text("Aula de Inglês", style: (TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                                  ),),
-                                  SizedBox(height: 10,),
-                                  Text("Fazer atividade de cores", style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal
-                                  ),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top:20),
-                        child: Row(
-                          children: <Widget> [
-
-                            Container(
-                              margin: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Color(0xff7CD9D9),
-                                      Color(0xff1db7b7),
-                                    ],
-                                  ),
-                                  borderRadius: BorderRadius.circular(15)
-                              ),
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              width: MediaQuery.of(context).size.width*0.8,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget> [
-                                  Text("Aula de Inglês", style: (TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                                  ),),
-                                  SizedBox(height: 10,),
-                                  Text("Fazer atividade de cores", style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal
-                                  ),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(18))
-            ),
-            title: Text("Adicionar lembrete"),
-            content: TextFormField(
-              controller: _eventController,
-            ),
-            actions: [
-              TextButton(
-                child: Text("Cancel"),
-                onPressed: () => Navigator.pop(context),
-              ),
-              TextButton(
-                child: Text("Ok"),
-                onPressed: () {
-                  if (_eventController.text.isEmpty) {
-
-                  } else {
-                    if (selectedEvents[selectedDay] != null) {
-                      selectedEvents[selectedDay]?.add(
-                        Event(title: _eventController.text),
-                      );
-                    } else {
-                      selectedEvents[selectedDay] = [
-                        Event(title: _eventController.text)
-                      ];
-                    }
-
-                  }
-                  Navigator.pop(context);
-                  _eventController.clear();
-                  setState((){});
-                  return;
-                },
-              ),
-            ],
           ),
-        ),
-        label: Text("+", style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
-        ),),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 280,
+            margin: EdgeInsets.only(top: 3, left: 30, right: 30),
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              children: [
+                Row(
+                  children: [
+                    Text("12:30", style: TextStyle(color: Color(0xffADB5BD), fontWeight: FontWeight.w500),),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Text("Aula de Português", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18),),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Color(0xff7CD9D9),
+                              Color(0xff1db7b7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      height: 83.05,
+                      width: 300,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Text("12:30", style: TextStyle(color: Color(0xffADB5BD), fontWeight: FontWeight.w500),),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Text("Aula de Português", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18),),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Color(0xff7CD9D9),
+                              Color(0xff1db7b7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      height: 83.05,
+                      width: 300,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Text("12:30", style: TextStyle(color: Color(0xffADB5BD), fontWeight: FontWeight.w500),),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Text("Aula de Português", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18),),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Color(0xff7CD9D9),
+                              Color(0xff1db7b7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      height: 83.05,
+                      width: 300,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Text("12:30", style: TextStyle(color: Color(0xffADB5BD), fontWeight: FontWeight.w500),),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Text("Aula de Português", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18),),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Color(0xff7CD9D9),
+                              Color(0xff1db7b7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      height: 83.05,
+                      width: 300,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Text("12:30", style: TextStyle(color: Color(0xffADB5BD), fontWeight: FontWeight.w500),),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Text("Aula de Português", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18),),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Color(0xff7CD9D9),
+                              Color(0xff1db7b7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      height: 83.05,
+                      width: 300,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Text("12:30", style: TextStyle(color: Color(0xffADB5BD), fontWeight: FontWeight.w500),),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Text("Aula de Português", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18),),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Color(0xff7CD9D9),
+                              Color(0xff1db7b7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      height: 83.05,
+                      width: 300,
+                    ),
+                  ],
+                ),
 
+              ],
+            ),
+          ),
+
+        ],
       ),
+      floatingActionButton: FloatingActionButton(
+        focusColor: AppStyle.secondColor,
+        elevation: 2,
+        onPressed: (){
+          showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)
+              ),
+              backgroundColor: Color(0xffF1F3F5),
+              context: context,
+              builder: (context) => Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                  child: Column(
+                    children: [
+                      TextFormField(),
+                      TextFormField(),
+                      TextFormField(),
+                    ],
 
+                  ),
+                ),
+              )
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
 
   }
