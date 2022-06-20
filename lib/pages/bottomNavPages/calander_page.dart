@@ -298,6 +298,7 @@ class _CalanderPageState extends State<CalanderPage> {
       floatingActionButton: FloatingActionButton(
         focusColor: AppStyle.secondColor,
         elevation: 2,
+        backgroundColor: AppStyle.secondColor,
         onPressed: (){
           showModalBottomSheet(
               shape: RoundedRectangleBorder(
