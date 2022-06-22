@@ -150,6 +150,14 @@ class _QualiPageState extends State<QualiPage> {
             ),)
           ),
           Container(
+            padding: EdgeInsets.only(top: 235, left: 75),
+            child: Text("1249", style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Color(0xff868E96)
+            ),),
+          ),
+          Container(
               padding: EdgeInsets.only(top: 277, left: 50),
               child: Image.asset('assets/images/Grupo 554.png', width: 130, height: 130,)
           ),
@@ -159,9 +167,17 @@ class _QualiPageState extends State<QualiPage> {
           ),
           Container(
               padding: EdgeInsets.only(top: 420, left: 75),
-              child: Text("Mairia - 9ª A", style: GoogleFonts.roboto(
+              child: Text("Maria - 9ª A", style: GoogleFonts.roboto(
                 color: Color(0xff4263EB)
               ),)
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 440, left: 100),
+            child: Text("1165", style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Color(0xff868E96)
+            ),),
           ),
           Container(
               padding: EdgeInsets.only(top: 300, left: 230),
@@ -182,17 +198,68 @@ class _QualiPageState extends State<QualiPage> {
               ),)
           ),
           Container(
-              padding: EdgeInsets.only(top: 450, left: 40),
+            padding: EdgeInsets.only(top: 440, left: 270),
+            child: Text("1098", style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Color(0xff868E96)
+            ),),
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 470, left: 40),
               child: Text(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", style: GoogleFonts.roboto(
                   color: Color(0xff4263EB)
               ),)
           ),
           Container(
-              padding: EdgeInsets.only(top: 470, left: 150),
+              padding: EdgeInsets.only(top: 490, left: 150),
               child: Text(" Minha Posição", style: GoogleFonts.roboto(
                   color: Color(0xff403B91),
                 fontWeight: FontWeight.w500
               ),)
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 530, left: 80),
+            child: Image.asset("assets/images/Grupo 554.png", width: 90, height: 90,),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 535, left: 95),
+            child: Image.asset("assets/images/avatar.png", width: 60, height: 60,),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 545, left: 40),
+            width: 43,
+            height: 43,
+            padding: EdgeInsets.only(left: 150),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color(0xff4263EB)
+              ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 555, left: 53),
+            child: Text("6º", style: GoogleFonts.roboto(color: Colors.white, fontSize: 17),),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 555, left: 170),
+            child: Text("Vinicius - 9º C", style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w500,
+                color: Color(0xff4263EB),
+                fontSize: 18),),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 585, left: 170),
+            child: Text("Pontuação:", style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                color: Color(0xff4263EB)
+            ),),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 585, left: 260),
+            child: Text("987", style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                color: Color(0xff868E96)
+            ),),
           ),
 
         ],
