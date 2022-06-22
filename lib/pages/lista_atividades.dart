@@ -1,18 +1,26 @@
+import 'package:codeone/pages/bottomNavPages/perfil_page.dart';
+import 'package:codeone/widget/expansion_wid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+
 
 import '../style/app_style.dart';
 
 class ListaAtividades extends StatefulWidget {
-  const ListaAtividades({Key? key}) : super(key: key);
+  ListaAtividades() : super();
 
   @override
   State<ListaAtividades> createState() => _ListaAtividadesState();
 }
 
 class _ListaAtividadesState extends State<ListaAtividades> {
+
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppStyle.secondColor,
@@ -29,13 +37,18 @@ class _ListaAtividadesState extends State<ListaAtividades> {
             color: Colors.white,
           ),
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.person,
+          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+              child: PerfilPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 10)
+          )), icon: Icon(Icons.person,
             size: 25,
             color: Colors.white,
           ),
           ),
         ],
       ),
+
       backgroundColor: AppStyle.mainColor,
       body: Column(
         children: [
@@ -54,28 +67,32 @@ class _ListaAtividadesState extends State<ListaAtividades> {
               ],
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Image.asset('assets/images/calculadora.png',
-                    width: 50,
-                    height: 50,
+                Padding(
+                  padding: const EdgeInsets.only(bottom:15.0),
+                  child: Container(
+                    child: Image.asset('assets/images/calculadora.png'),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(bottom: 10.0),
+                SizedBox(width: 10.0,),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 15.0),
                   child: Text(
-                    "MATEMÁTICA",
+                    "Matemática",
                     style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 24
+                        fontSize: 22,
+                        color: Colors.white
                     ),
                   ),
                 ),
+                SizedBox(height: 20.0,),
               ],
             ),
+          ),
+          SingleChildScrollView(
+            child: ExpansionWid(),
           ),
         ],
       ),
