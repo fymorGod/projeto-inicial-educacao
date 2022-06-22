@@ -1,16 +1,17 @@
+import 'package:codeone/pages/quali_sala.dart';
 import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 
-class QualiSala extends StatefulWidget {
-  const QualiSala({Key? key}) : super(key: key);
+class QualiEscola extends StatefulWidget {
+  const QualiEscola({Key? key}) : super(key: key);
 
   @override
-  State<QualiSala> createState() => _QualiSalaState();
+  State<QualiEscola> createState() => _QualiEscolaState();
 }
 
-class _QualiSalaState extends State<QualiSala> {
+class _QualiEscolaState extends State<QualiEscola> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

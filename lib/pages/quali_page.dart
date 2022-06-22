@@ -46,8 +46,155 @@ class _QualiPageState extends State<QualiPage> {
       body: Stack(
         children: [
           Container(
+            height: 15,
+              decoration: BoxDecoration(
+                color: AppStyle.secondColor,
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30),),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppStyle.shadowMainColor,
+                    spreadRadius: 2,
+                    blurRadius: 1,
+                    offset: Offset(0.0, 2.0)
+                  )
+                ]
+              ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30, left: 20),
+            child: Text("Classificação",
+            style: GoogleFonts.roboto(
+            color: Color(0xff403B91),
+              fontSize: 18,
+              fontWeight: FontWeight.w400
+            ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 60, left: 105),
+            child: Row(
+              children: [
+                TextButton(
+                    style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
+                      ),
+                    onPressed: () {},
+                    child: Text("Escola")),
+                TextButton(
+                    style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
+                    ),
+                    onPressed: () {},
+                    child: Text("Série")),
+                TextButton(
+                    style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
+                    ),
+                    onPressed: () => Navigator.push(context,
+                        PageTransition(child: QualiSala(),
+                            type: PageTransitionType.fade)),
+                    child: Text("Sala")),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 120, left: 30),
+            child: SizedBox(
+              height: 570,
+              width: 350,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15)
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 120, left: 30),
+            child: SizedBox(
+              width: 350,
+              height: 55,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Color(0xffEEBC4E),
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(15), topLeft: Radius.circular(15))
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top:130, left: 140),
+            child: Text("Divisão Ouro", style: GoogleFonts.roboto(
+              fontSize: 18,
+              color: Colors.white,
+              fontWeight: FontWeight.w500
+            ),),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 160, left: 140),
+            child: Image.asset("assets/images/Grupo 554.png"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 173, left: 153),
+            child: Image.asset("assets/images/foto 3.png", height: 98, width: 98,),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 190, left: 210),
+            child: Image.asset("assets/images/Grupo 301.png", height: 95, width: 95,),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 215, left: 55),
+            child: Text("Carla - 9º B", style: GoogleFonts.roboto(
+              color: Color(0xff4263EB)
+            ),)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 277, left: 50),
+              child: Image.asset('assets/images/Grupo 554.png', width: 130, height: 130,)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 280, left: 65),
+              child: Image.asset('assets/images/4.png', width: 100, height: 100,)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 420, left: 75),
+              child: Text("Mairia - 9ª A", style: GoogleFonts.roboto(
+                color: Color(0xff4263EB)
+              ),)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 300, left: 230),
+              child: Image.asset('assets/images/Grupo 554.png', width: 110, height: 110,)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 307, left: 250),
+              child: Image.asset('assets/images/foto 4.png', width: 70, height: 70,)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 340, left: 295),
+              child: Image.asset('assets/images/Grupo 307.png', width: 50, height: 50,)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 420, left: 250),
+              child: Text("Ana - 9ª D", style: GoogleFonts.roboto(
+                  color: Color(0xff4263EB)
+              ),)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 450, left: 40),
+              child: Text(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", style: GoogleFonts.roboto(
+                  color: Color(0xff4263EB)
+              ),)
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 470, left: 150),
+              child: Text(" Minha Posição", style: GoogleFonts.roboto(
+                  color: Color(0xff403B91),
+                fontWeight: FontWeight.w500
+              ),)
+          ),
 
-          )
         ],
       )
     );
