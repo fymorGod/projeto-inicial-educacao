@@ -143,7 +143,7 @@ class _CalanderPageState extends State<CalanderPage> {
               ),
               SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.only(top: 3, left: 10, right:10),
+                  padding: EdgeInsets.only(top: 3, left: 20, right:10),
                   width: 120.w,
                   height: Adaptive.sp(70),
                   child: ListView(
@@ -358,9 +358,11 @@ class _CalanderPageState extends State<CalanderPage> {
                                 ),),
                               ),
                               SizedBox(
-                                height: 40,
+
                                 child: TextField(
+                                  autofocus: true,
                                   decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(width: 0,),
                                       borderRadius: BorderRadius.circular(10),
@@ -385,6 +387,7 @@ class _CalanderPageState extends State<CalanderPage> {
                                 height: 40,
                                 child: TextField(
                                   decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(width: 0,),
                                       borderRadius: BorderRadius.circular(10),
@@ -409,6 +412,7 @@ class _CalanderPageState extends State<CalanderPage> {
                                 height: 40,
                                 child: TextField(
                                   decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(width: 0,),
                                       borderRadius: BorderRadius.circular(10),
@@ -453,6 +457,7 @@ class _CalanderPageState extends State<CalanderPage> {
                                       height: 40,
                                       child: TextField(
                                         decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: const BorderSide(width: 0,),
                                             borderRadius: BorderRadius.circular(10),
@@ -470,6 +475,7 @@ class _CalanderPageState extends State<CalanderPage> {
                                       height: 40,
                                       child: TextField(
                                         decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: const BorderSide(width: 0,),
                                             borderRadius: BorderRadius.circular(10),
@@ -500,7 +506,6 @@ class _CalanderPageState extends State<CalanderPage> {
                                     SizedBox(width: 30,),
                                     ElevatedButton(onPressed: () {},
                                         style: ElevatedButton.styleFrom(
-
                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
                                           fixedSize: Size(150, 50), primary: Color(0xff4263EB),
                                         ),
