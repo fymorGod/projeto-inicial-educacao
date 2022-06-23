@@ -35,11 +35,6 @@ class _PerfilPageState extends State<PerfilPage> {
         backgroundColor: AppStyle.secondColor,
         elevation: 0,
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search,
-            size: 25,
-            color: Colors.white,
-          ),
-          ),
 
           IconButton(onPressed: (){}, icon: Icon(Icons.notifications_none_outlined,
             size: 25,

@@ -1,3 +1,4 @@
+import 'package:codeone/pages/quali_escola.dart';
 import 'package:codeone/pages/quali_sala.dart';
 import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
@@ -24,11 +25,6 @@ class _QualiPageState extends State<QualiPage> {
         backgroundColor: AppStyle.secondColor,
         elevation: 0,
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search,
-            size: 25,
-            color: Colors.white,
-          ),
-          ),
 
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none_outlined,
             size: 25,
@@ -78,7 +74,9 @@ class _QualiPageState extends State<QualiPage> {
                     style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
                       ),
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(context,
+                        PageTransition(child: QualiEscola(),
+                            type: PageTransitionType.fade)),
                     child: Text("Escola")),
                 TextButton(
                     style: ButtonStyle(

@@ -24,11 +24,6 @@ class _QualiEscolaState extends State<QualiEscola> {
           backgroundColor: AppStyle.secondColor,
           elevation: 0,
           actions: [
-            IconButton(onPressed: (){}, icon: const Icon(Icons.search,
-              size: 25,
-              color: Colors.white,
-            ),
-            ),
 
             IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none_outlined,
               size: 25,
