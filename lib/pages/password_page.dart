@@ -22,11 +22,6 @@ class _PasswordPageState extends State<PasswordPage> {
         backgroundColor: AppStyle.secondColor,
         elevation: 0,
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search,
-            size: 25,
-            color: Colors.white,
-          ),
-          ),
 
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none_outlined,
             size: 25,
@@ -90,12 +85,13 @@ class _PasswordPageState extends State<PasswordPage> {
                   width: 380,
                   child: TextField(
                     decoration: InputDecoration(
+                      hintText: "**********",
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.blue),
+                        borderSide: const BorderSide(width: 0,),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(width: 3, color: Colors.blue),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
@@ -119,12 +115,13 @@ class _PasswordPageState extends State<PasswordPage> {
                   width: 380,
                   child: TextField(
                     decoration: InputDecoration(
+                      hintText: "**********",
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.blue),
+                        borderSide: const BorderSide(width: 0,),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(width: 3, color: Colors.blue),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
@@ -148,16 +145,42 @@ class _PasswordPageState extends State<PasswordPage> {
                   width: 380,
                   child: TextField(
                     decoration: InputDecoration(
+                      hintText: "**********",
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.blue),
+                        borderSide: const BorderSide(width: 0),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(width: 3, color: Colors.blue),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
                   ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 30, left: 20),
+                alignment: Alignment.center,
+                child: Row(
+                  children: [
+                    ElevatedButton(onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                          fixedSize: Size(170, 50), primary: Color(0xffBAC8FF),
+                        ),
+                        child: Text('Cancelar', style: TextStyle(
+                            color: Color(0xff4263EB),
+                            fontSize: 18,
+                            fontFamily: 'Roboto'),)),
+                    SizedBox(width: 10,),
+                    ElevatedButton(onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                          fixedSize: Size(170, 50), primary: Color(0xff4263EB),
+                        ),
+                        child: Text('Confirmar', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
+                  ],
                 ),
               ),
             ],
