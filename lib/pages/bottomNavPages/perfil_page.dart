@@ -61,10 +61,10 @@ class _PerfilPageState extends State<PerfilPage> {
                   Stack(
                     children: [
                       Container(
-                          child: Image.asset("assets/images/moldura.png"),
-                      margin: EdgeInsets.only(right: 270, top: 20, left: 10),),
+                        child: Image.asset("assets/images/moldura.png"),
+                        margin: EdgeInsets.only(right: 270, top: 20, left: 10),),
                       Container(
-                          child: Image.asset("assets/images/person.png"),
+                        child: Image.asset("assets/images/person.png"),
                         margin: EdgeInsets.only(right: 270, top: 25, left: 14),),
                       Container(
                         margin: EdgeInsets.only(left: 130, top: 18),
@@ -134,15 +134,15 @@ class _PerfilPageState extends State<PerfilPage> {
                         width: 50,
                         height: 24,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color(0xff00A1A1)
+                            borderRadius: BorderRadius.circular(12),
+                            color: Color(0xff00A1A1)
                         ),
                         margin: EdgeInsets.only(left: 250, top: 100),
                         child: Center(
                           child: Text( "150", style: GoogleFonts.roboto(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
                           ),
 
                           ),
@@ -199,11 +199,11 @@ class _PerfilPageState extends State<PerfilPage> {
           ),
           SizedBox(height: 13,),
           Container(
-           padding: EdgeInsets.only(left: 20),
-            child: Text("Aulas Baixadas", style: TextStyle(color: Color(0xff403B91),
+              padding: EdgeInsets.only(left: 20),
+              child: Text("Aulas Baixadas", style: TextStyle(color: Color(0xff403B91),
                   fontSize: 18),
-            textAlign: TextAlign.start,)
-            ),
+                textAlign: TextAlign.start,)
+          ),
           SizedBox(height: 10,),
           Container(
             height: 120,
@@ -272,7 +272,7 @@ class _PerfilPageState extends State<PerfilPage> {
           ),
 
         ],
-        ),
+      ),
     );
   }
 }

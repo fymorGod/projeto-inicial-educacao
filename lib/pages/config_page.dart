@@ -2,9 +2,8 @@ import 'package:codeone/pages/idoma_page.dart';
 import 'package:codeone/pages/password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:list_tile_switch/list_tile_switch.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 class ConfigPage extends StatefulWidget {
   const ConfigPage({Key? key}) : super(key: key);
@@ -17,6 +16,22 @@ class _ConfigPageState extends State<ConfigPage> {
   bool _toggled1 = false;
   bool _toggled2 = false;
   bool _toggled3 = false;
+  bool _canVibrate = false;
+  final Iterable<Duration> pauses = [
+    const Duration(milliseconds: 500),
+    const Duration(milliseconds: 1000),
+    const Duration(milliseconds: 500),
+  ];
+
+  Future<void> _init() async {
+    bool canVibrate = await Vibrate.canVibrate;
+    setState(() {
+      _canVibrate = canVibrate;
+      _canVibrate
+          ? debugPrint('This device can vibrate')
+          : debugPrint('This device cannot vibrate');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +48,6 @@ class _ConfigPageState extends State<ConfigPage> {
         backgroundColor: AppStyle.secondColor,
         elevation: 0,
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search,
-            size: 25,
-            color: Colors.white,
-          ),
-          ),
 
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none_outlined,
             size: 25,
@@ -218,8 +228,13 @@ class _ConfigPageState extends State<ConfigPage> {
                             title: const Text("Vibração", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                             value: _toggled3,
                             onChanged: (value){
-                              setState(()=>_toggled3=value);
-                            },),
+                              setState(() {
+                                _toggled3 = value;
+                                if(_canVibrate) Vibrate.vibrate;
+                              });
+                            },
+
+                          ),
                         ),
 
                         //botão clicável
