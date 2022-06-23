@@ -37,7 +37,7 @@ class _PasswordPageState extends State<PasswordPage> {
       ),
       backgroundColor: AppStyle.mainColor,
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         child: Container(
           color: AppStyle.mainColor,
           child: Column(

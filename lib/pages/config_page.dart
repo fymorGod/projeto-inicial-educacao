@@ -259,6 +259,7 @@ class _ConfigPageState extends State<ConfigPage> {
                               ),
                               child: Text('Política de privacidade', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
                         ),
+                        SizedBox(height: 20,)
                       ],
                     ),
                   )
