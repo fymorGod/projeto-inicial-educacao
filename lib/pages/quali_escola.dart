@@ -38,74 +38,76 @@ class _QualiEscolaState extends State<QualiEscola> {
           ],
         ),
         backgroundColor: AppStyle.mainColor,
-        body: Stack(
-          children: [
-            Container(
-              height: 15,
-              decoration: BoxDecoration(
-                  color: AppStyle.secondColor,
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30),),
-                  boxShadow: [
-                    BoxShadow(
-                        color: AppStyle.shadowMainColor,
-                        spreadRadius: 2,
-                        blurRadius: 1,
-                        offset: Offset(0.0, 2.0)
-                    )
-                  ]
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 30, left: 20),
-              child: Text("Classificação",
-                style: GoogleFonts.roboto(
-                    color: Color(0xff403B91),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400
+        body: Container(
+          child: Stack(
+            children: [
+              Container(
+                height: 15,
+                decoration: BoxDecoration(
+                    color: AppStyle.secondColor,
+                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30),),
+                    boxShadow: [
+                      BoxShadow(
+                          color: AppStyle.shadowMainColor,
+                          spreadRadius: 2,
+                          blurRadius: 1,
+                          offset: Offset(0.0, 2.0)
+                      )
+                    ]
                 ),
               ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 60, left: 105),
-              child: Row(
-                children: [
-                  TextButton(
-                      style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
-                      ),
-                      onPressed: () {},
-                      child: Text("Escola")),
-                  TextButton(
-                      style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
-                      ),
-                      onPressed: () {},
-                      child: Text("Série")),
-                  TextButton(
-                      style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
-                      ),
-                      onPressed: () => Navigator.push(context,
-                          PageTransition(child: QualiSala(),
-                              type: PageTransitionType.fade)),
-                      child: Text("Sala")),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 120, left: 30),
-              child: SizedBox(
-                height: 570,
-                width: 350,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)
+              Container(
+                padding: EdgeInsets.only(top: 30, left: 20),
+                child: Text("Classificação",
+                  style: GoogleFonts.roboto(
+                      color: Color(0xff403B91),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400
                   ),
                 ),
               ),
-            )
-          ],
+              Container(
+                padding: EdgeInsets.only(top: 60, left: 105),
+                child: Row(
+                  children: [
+                    TextButton(
+                        style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
+                        ),
+                        onPressed: () {},
+                        child: Text("Escola")),
+                    TextButton(
+                        style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
+                        ),
+                        onPressed: () {},
+                        child: Text("Série")),
+                    TextButton(
+                        style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all(AppStyle.titleColor)
+                        ),
+                        onPressed: () => Navigator.push(context,
+                            PageTransition(child: QualiSala(),
+                                type: PageTransitionType.fade)),
+                        child: Text("Sala")),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 120, left: 30),
+                child: SizedBox(
+                  height: 570,
+                  width: 350,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         )
     );
   }

@@ -341,185 +341,189 @@ class _CalanderPageState extends State<CalanderPage> {
                   backgroundColor: Color(0xffF1F3F5),
                   isScrollControlled: true,
                   context: context,
-                  builder: (context) =>
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 40, vertical: 40),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.only(top:30, bottom: 10),
-                                child:Text("Título", style: GoogleFonts.roboto(
-                                  color: Color(0xff403B91),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400
-                                ),),
-                              ),
-                              SizedBox(
-
-                                child: TextField(
-                                  autofocus: true,
-                                  decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 0,),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 3, color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(10),
+                  builder: (context) {
+                      return FractionallySizedBox(
+                        heightFactor: 1,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 40, vertical: 40),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(top:30, bottom: 10),
+                                  child:Text("Título", style: GoogleFonts.roboto(
+                                      color: Color(0xff403B91),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400
+                                  ),),
+                                ),
+                                SizedBox(
+                                  child: TextField(
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 0,),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 3, color: Colors.blue),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(height: 3,),
-                              Container(
-                                padding: EdgeInsets.only(top:10, bottom: 10),
-                                child:Text("Descrição", style: GoogleFonts.roboto(
-                                    color: Color(0xff403B91),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400
-                                ),),
-                              ),
-                              SizedBox(
-                                height: 40,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 0,),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 3, color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(10),
+                                SizedBox(height: 3,),
+                                Container(
+                                  padding: EdgeInsets.only(top:10, bottom: 10),
+                                  child:Text("Descrição", style: GoogleFonts.roboto(
+                                      color: Color(0xff403B91),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400
+                                  ),),
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 0,),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 3, color: Colors.blue),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(height: 3,),
-                              Container(
-                                padding: EdgeInsets.only(top:10, bottom: 10),
-                                child:Text("Data", style: GoogleFonts.roboto(
-                                    color: Color(0xff403B91),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400
-                                ),),
-                              ),
-                              SizedBox(
-                                height: 40,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 0,),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 3, color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(10),
+                                SizedBox(height: 3,),
+                                Container(
+                                  padding: EdgeInsets.only(top:10, bottom: 10),
+                                  child:Text("Data", style: GoogleFonts.roboto(
+                                      color: Color(0xff403B91),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400
+                                  ),),
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 0,),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 3, color: Colors.blue),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(top: 10),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(top:10, bottom: 10),
-                                      child:Text("Inicio", style: GoogleFonts.roboto(
-                                          color: Color(0xff403B91),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w400
-                                      ),),
-                                    ),
-                                    SizedBox(width: 140,),
-                                    Container(
-                                      padding: EdgeInsets.only(top:10, bottom: 10),
-                                      child:Text("Fim", style: GoogleFonts.roboto(
-                                          color: Color(0xff403B91),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w400
-                                      ),),
-                                    ),
-                                  ],
+                                Container(
+                                  padding: EdgeInsets.only(top: 10),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top:10, bottom: 10),
+                                        child:Text("Inicio", style: GoogleFonts.roboto(
+                                            color: Color(0xff403B91),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400
+                                        ),),
+                                      ),
+                                      SizedBox(width: 140,),
+                                      Container(
+                                        padding: EdgeInsets.only(top:10, bottom: 10),
+                                        child:Text("Fim", style: GoogleFonts.roboto(
+                                            color: Color(0xff403B91),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400
+                                        ),),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(top: 10),
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 150,
-                                      height: 40,
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: const BorderSide(width: 0,),
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: const BorderSide(width: 3, color: Colors.blue),
-                                            borderRadius: BorderRadius.circular(10),
+                                Container(
+                                  padding: EdgeInsets.only(top: 10),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 150,
+                                        height: 40,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(width: 0,),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(width: 3, color: Colors.blue),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(width: 20,),
-                                    SizedBox(
-                                      width: 150,
-                                      height: 40,
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: const BorderSide(width: 0,),
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: const BorderSide(width: 3, color: Colors.blue),
-                                            borderRadius: BorderRadius.circular(10),
+                                      SizedBox(width: 20,),
+                                      SizedBox(
+                                        width: 150,
+                                        height: 40,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(width: 0,),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(width: 3, color: Colors.blue),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(top: 30),
-                                child: Row(
-                                  children: [
-                                    ElevatedButton(onPressed: () {},
-                                        style: ElevatedButton.styleFrom(
-                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                                          fixedSize: Size(150, 50), primary: Color(0xffBAC8FF),
-                                        ),
-                                        child: Text('Cancelar', style: TextStyle(
-                                            color: Color(0xff4263EB),
-                                            fontSize: 18,
-                                            fontFamily: 'Roboto'),)),
-                                    SizedBox(width: 30,),
-                                    ElevatedButton(onPressed: () {},
-                                        style: ElevatedButton.styleFrom(
-                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                                          fixedSize: Size(150, 50), primary: Color(0xff4263EB),
-                                        ),
-                                        child: Text('Confirmar', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
-                                  ],
-                                ),
-                              )
+                                Container(
+                                  padding: EdgeInsets.only(top: 30),
+                                  child: Row(
+                                    children: [
+                                      ElevatedButton(onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                                            fixedSize: Size(150, 50), primary: Color(0xffBAC8FF),
+                                          ),
+                                          child: Text('Cancelar', style: TextStyle(
+                                              color: Color(0xff4263EB),
+                                              fontSize: 18,
+                                              fontFamily: 'Roboto'),)),
+                                      SizedBox(width: 30,),
+                                      ElevatedButton(onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                                            fixedSize: Size(150, 50), primary: Color(0xff4263EB),
+                                          ),
+                                          child: Text('Confirmar', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
+                                    ],
+                                  ),
+                                )
 
-                              
-                            ],
 
+                              ],
+
+                            ),
                           ),
                         ),
-                      )
+                      );
+
+                      },
               );
             },
             child: Icon(Icons.add),
