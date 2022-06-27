@@ -42,8 +42,7 @@ class _CalanderPageState extends State<CalanderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(
-      builder: (context, orientation, sceenType) {
+    var size = MediaQuery.of(context).size;
         return Scaffold(
           appBar: AppBar(
             title: Container(
@@ -74,261 +73,274 @@ class _CalanderPageState extends State<CalanderPage> {
             ],
           ),
           backgroundColor: AppStyle.mainColor,
-          body: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    boxShadow: [BoxShadow(
-                        color: AppStyle.shadowMainColor,
-                        spreadRadius: 2,
-                        blurRadius: 1,
-                        offset: Offset(0.0, 2.0)
-                    ),
-                    ],
-                    color: AppStyle.secondColor,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(28),
-                        bottomLeft: Radius.circular(28)
-                    )),
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: Container(
-                  height: 380,
-                  child: TableCalendar(
-                    locale: 'pt_BR',
-                    focusedDay: selectedDay,
-                    firstDay: DateTime(1900),
-                    lastDay: DateTime(2500),
-                    calendarFormat: format,
-                    onFormatChanged: (CalendarFormat _format) {
-                      setState(() {
-                        selectedDay = selectedDay;
-                        focusedDay = focusedDay;
-                        restDay = restDay;
-                      });
-                    },
-                    startingDayOfWeek: StartingDayOfWeek.sunday,
-                    daysOfWeekVisible: true,
-                    onDaySelected: (DateTime selectDay, DateTime focusDay) {
-                      setState(() {
-                        selectedDay = selectDay;
-                        focusedDay = focusDay;
-                      });
-                    },
-                    eventLoader: _getEventsfromDay,
-                    calendarStyle: CalendarStyle(
-                        outsideDaysVisible: false,
-                        defaultTextStyle: TextStyle(color: Colors.white),
-                        weekendTextStyle: TextStyle(color: Colors.white),
-                        isTodayHighlighted: true,
-                        selectedDecoration: BoxDecoration(
-                          color: Color(0xff22C1C1),
-                          shape: BoxShape.circle,
+          body: LayoutBuilder(
+            builder: (_,constraints) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: constraints.maxWidth,
+                    height: constraints.maxHeight * 0.55,
+                    decoration: BoxDecoration(
+                        boxShadow: [BoxShadow(
+                            color: AppStyle.shadowMainColor,
+                            spreadRadius: 2,
+                            blurRadius: 1,
+                            offset: Offset(0.0, 2.0)
                         ),
-                        selectedTextStyle: TextStyle(color: Colors.white)
-                    ),
-                    selectedDayPredicate: (DateTime date) {
-                      return isSameDay(selectedDay, date);
-                    },
-                    headerStyle: HeaderStyle(
-                      titleTextStyle: TextStyle(
-                          color: Colors.white, fontSize: 20),
-                      leftChevronVisible: false,
-                      rightChevronVisible: false,
-                      formatButtonVisible: false,
-                      titleCentered: false,
-                      formatButtonShowsNext: true,
+                        ],
+                        color: AppStyle.secondColor,
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(28),
+                            bottomLeft: Radius.circular(28)
+                        )),
+                    padding: EdgeInsets.only(bottom: 5, left: 10, right: 10),
+                    child: Container(
+                      width: constraints.maxWidth,
+                      height: 370,
+                      child: TableCalendar(
+                        locale: 'pt_BR',
+                        focusedDay: selectedDay,
+                        firstDay: DateTime(1900),
+                        lastDay: DateTime(2500),
+                        calendarFormat: format,
+                        onFormatChanged: (CalendarFormat _format) {
+                          setState(() {
+                            selectedDay = selectedDay;
+                            focusedDay = focusedDay;
+                            restDay = restDay;
+                          });
+                        },
+                        startingDayOfWeek: StartingDayOfWeek.sunday,
+                        daysOfWeekVisible: true,
+                        onDaySelected: (DateTime selectDay, DateTime focusDay) {
+                          setState(() {
+                            selectedDay = selectDay;
+                            focusedDay = focusDay;
+                          });
+                        },
+                        eventLoader: _getEventsfromDay,
+                        calendarStyle: CalendarStyle(
+                            outsideDaysVisible: false,
+                            defaultTextStyle: TextStyle(color: Colors.white),
+                            weekendTextStyle: TextStyle(color: Colors.white),
+                            isTodayHighlighted: true,
+                            selectedDecoration: BoxDecoration(
+                              color: Color(0xff22C1C1),
+                              shape: BoxShape.circle,
+                            ),
+                            selectedTextStyle: TextStyle(color: Colors.white)
+                        ),
+                        selectedDayPredicate: (DateTime date) {
+                          return isSameDay(selectedDay, date);
+                        },
+                        headerStyle: HeaderStyle(
+                          titleTextStyle: TextStyle(
+                              color: Colors.white, fontSize: 20),
+                          leftChevronVisible: false,
+                          rightChevronVisible: false,
+                          formatButtonVisible: false,
+                          titleCentered: false,
+                          formatButtonShowsNext: true,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.only(top: 3, left: 20, right:10),
-                  width: 120.w,
-                  height: Adaptive.sp(70),
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      Row(
-                        children: [
-                          Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
-                              fontWeight: FontWeight.w500),),
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 10),
-                              child: Text("Aula de Português", style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18),),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xff7CD9D9),
-                                    Color(0xff1db7b7),
-                                  ],
+                  Container(
+                    height: constraints.maxHeight * .45,
+                    width: constraints.maxWidth,
+                    child: SingleChildScrollView(
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20, right:10),
+                        width: constraints.maxWidth,
+                        height: constraints.maxHeight/2,
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            Row(
+                              children: [
+                                Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
+                                    fontWeight: FontWeight.w500),),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20, top: 10),
+                                    child: Text("Aula de Português", style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Color(0xff7CD9D9),
+                                          Color(0xff1db7b7),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  height: 83.05,
+                                  width: 300,
                                 ),
-                                borderRadius: BorderRadius.circular(20)
+                              ],
                             ),
-                            height: 83.05,
-                            width: 300,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
-                              fontWeight: FontWeight.w500),),
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 10),
-                              child: Text("Aula de Português", style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18),),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xff7CD9D9),
-                                    Color(0xff1db7b7),
-                                  ],
+                            SizedBox(height: 20,),
+                            Row(
+                              children: [
+                                Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
+                                    fontWeight: FontWeight.w500),),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20, top: 10),
+                                    child: Text("Aula de Português", style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Color(0xff7CD9D9),
+                                          Color(0xff1db7b7),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  height: 83.05,
+                                  width: 300,
                                 ),
-                                borderRadius: BorderRadius.circular(20)
+                              ],
                             ),
-                            height: 83.05,
-                            width: 300,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
-                              fontWeight: FontWeight.w500),),
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 10),
-                              child: Text("Aula de Português", style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18),),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xff7CD9D9),
-                                    Color(0xff1db7b7),
-                                  ],
+                            SizedBox(height: 20,),
+                            Row(
+                              children: [
+                                Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
+                                    fontWeight: FontWeight.w500),),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20, top: 10),
+                                    child: Text("Aula de Português", style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Color(0xff7CD9D9),
+                                          Color(0xff1db7b7),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  height: 83.05,
+                                  width: 300,
                                 ),
-                                borderRadius: BorderRadius.circular(20)
+                              ],
                             ),
-                            height: 83.05,
-                            width: 300,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
-                              fontWeight: FontWeight.w500),),
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 10),
-                              child: Text("Aula de Português", style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18),),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xff7CD9D9),
-                                    Color(0xff1db7b7),
-                                  ],
+                            SizedBox(height: 20,),
+                            Row(
+                              children: [
+                                Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
+                                    fontWeight: FontWeight.w500),),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20, top: 10),
+                                    child: Text("Aula de Português", style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Color(0xff7CD9D9),
+                                          Color(0xff1db7b7),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  height: 83.05,
+                                  width: 300,
                                 ),
-                                borderRadius: BorderRadius.circular(20)
+                              ],
                             ),
-                            height: 83.05,
-                            width: 300,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
-                              fontWeight: FontWeight.w500),),
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 10),
-                              child: Text("Aula de Português", style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18),),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xff7CD9D9),
-                                    Color(0xff1db7b7),
-                                  ],
+                            SizedBox(height: 20,),
+                            Row(
+                              children: [
+                                Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
+                                    fontWeight: FontWeight.w500),),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20, top: 10),
+                                    child: Text("Aula de Português", style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Color(0xff7CD9D9),
+                                          Color(0xff1db7b7),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  height: 83.05,
+                                  width: 300,
                                 ),
-                                borderRadius: BorderRadius.circular(20)
+                              ],
                             ),
-                            height: 83.05,
-                            width: 300,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
-                              fontWeight: FontWeight.w500),),
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 10),
-                              child: Text("Aula de Português", style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18),),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xff7CD9D9),
-                                    Color(0xff1db7b7),
-                                  ],
+                            SizedBox(height: 20,),
+                            Row(
+                              children: [
+                                Text("12:30", style: TextStyle(color: Color(0xffADB5BD),
+                                    fontWeight: FontWeight.w500),),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20, top: 10),
+                                    child: Text("Aula de Português", style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Color(0xff7CD9D9),
+                                          Color(0xff1db7b7),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  height: 83.05,
+                                  width: 300,
                                 ),
-                                borderRadius: BorderRadius.circular(20)
+                              ],
                             ),
-                            height: 83.05,
-                            width: 300,
-                          ),
-                        ],
-                      ),
 
-                    ],
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
 
-            ],
+                ],
+              );
+            }
+
           ),
           floatingActionButton: FloatingActionButton(
             focusColor: AppStyle.secondColor,
@@ -530,7 +542,4 @@ class _CalanderPageState extends State<CalanderPage> {
           ),
         );
       }
-    );
-
   }
-}
