@@ -65,6 +65,7 @@ class _HomePageState extends State<HomePage> {
           height: size.height,
             child: Stack(
               children: [
+
                 Container(
                   width: size.width,
                   height: size.height * 0.40,

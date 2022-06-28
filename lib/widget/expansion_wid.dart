@@ -1,5 +1,7 @@
 import 'package:codeone/style/app_style.dart';
+import 'package:codeone/widget/QuestionWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
 import '../interfaces/atv.dart';
 
@@ -48,7 +50,8 @@ class _ExpansionWidState extends State<ExpansionWid> {
             headerBuilder: (bc, status) {
           return Container(
             child: Container(
-              padding: EdgeInsets.all(10), child: Row(
+              padding: EdgeInsets.all(10),
+              child: Row(
             children: [
               Container(
                 child: Image.asset('assets/images/play-button.png',
@@ -56,10 +59,12 @@ class _ExpansionWidState extends State<ExpansionWid> {
                   height: 30,
                 ),
               ),
-              SizedBox(width: 10.0,),
-              Text(atv.name)
-            ],
-          ),),);
+                  SizedBox(width: 10.0,),
+                  Text(atv.name)
+                ],
+              ),
+            ),
+          );
         },body: FutureBuilder(
           future: _initializeVideoPlayerFuture,
           builder: (context, snapshot){
@@ -79,7 +84,15 @@ class _ExpansionWidState extends State<ExpansionWid> {
                           controller!.play();
                         }
                      }
-                  )
+                  ),
+                  TextButton(onPressed: () {
+                    Navigator.push(context, PageTransition(
+                        child: QuestionWidget(),
+                        type:  PageTransitionType.fade,
+                        duration: const Duration(milliseconds: 10)
+                    )
+                    );
+                  }, child: Text("Atividade 1"))
                 ],
               );
             }  else {

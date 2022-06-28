@@ -21,7 +21,9 @@ class _CreateAnotationState extends State<CreateAnotation> {
         backgroundColor: AppStyle.secondColor,
         elevation: 0,
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search,
+          IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.search,
             size: 25,
             color: Colors.white,
           ),
@@ -32,7 +34,8 @@ class _CreateAnotationState extends State<CreateAnotation> {
             color: Colors.white,
           ),
           ),
-          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+          IconButton(
+            onPressed: () => Navigator.push(context, PageTransition(
               child: PerfilPage(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 10)
@@ -104,7 +107,27 @@ class _CreateAnotationState extends State<CreateAnotation> {
               children: [
                 SizedBox(width: 145),
                 TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)
+                          ),
+                          backgroundColor: Color(0xffF1F3F5),
+                          context: context,
+                          builder: (context) => Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                              child: Column(
+                                children: [
+                                  TextField(
+                                    decoration: InputDecoration(),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                      );
+                    },
                     child: Row(
                       children: [
                         Icon(Icons.add),
