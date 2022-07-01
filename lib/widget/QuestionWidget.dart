@@ -44,22 +44,44 @@ class _QuestionWidgetState extends State<QuestionWidget> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 80),
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                margin: EdgeInsets.only(top: 30),
+                child: Text(
+                  "TRIGONOMETRIA",
+                  style: GoogleFonts.roboto(
+                    fontSize: 18,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w500
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 30),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 height: MediaQuery.of(context).size.height * 0.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12)
                 ),
                child: Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
                    const SizedBox(
-                     height: 32,
+                     height: 10,
                    ),
-                   Text('Question $_questionsNumber/${questions.length}'),
+                   Text(
+                       "Atividade 1",
+                     style: GoogleFonts.roboto(
+                       fontSize: 18,
+                       fontWeight: FontWeight.w400,
+                       color: Colors.black38
+                     ),
+                   ),
+                   const SizedBox(
+                     height: 20,
+                   ),
                    Expanded(
                        child: PageView.builder(
                          controller: _controller,
@@ -79,7 +101,11 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
                     height: 60,
-                    child: buildElevatedButton())) : const SizedBox.shrink(),
+                    child: buildElevatedButton())) : Center(
+                  child: Container(
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      height: 60,
+                      child: buildElevatedButton())) ,
               const SizedBox(height: 20),
 
             ],
@@ -171,7 +197,7 @@ class OptionsWidget extends StatelessWidget {
   const OptionsWidget({
     Key? key,
     required this.question,
-    required this.onClickOption
+    required this.onClickOption,
   }) : super(key: key);
 
   @override
@@ -227,12 +253,10 @@ class OptionsWidget extends StatelessWidget {
   Widget getIconForOption(Option option, Question question) {
     final isSelected = option == question.selectedOption;
     if(question.isLocked){
-      if(isSelected){
-        return option.isCorrect
-            ? const Icon(Icons.check_circle, color: Colors.green)
-            : const Icon(Icons.cancel, color: Colors.red);
-      } else if(option.isCorrect){
-        return const Icon(Icons.check_circle, color: Colors.green);
+        if(isSelected){
+          return option.isCorrect
+              ? const Icon(Icons.check_circle, color: Colors.green)
+              : const Icon(Icons.cancel, color: Colors.red);
       }
     }
     return const SizedBox.shrink();

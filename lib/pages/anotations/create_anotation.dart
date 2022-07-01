@@ -14,6 +14,9 @@ class CreateAnotation extends StatefulWidget {
 }
 
 class _CreateAnotationState extends State<CreateAnotation> {
+
+  TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,17 +117,47 @@ class _CreateAnotationState extends State<CreateAnotation> {
                           ),
                           backgroundColor: Color(0xffF1F3F5),
                           context: context,
-                          builder: (context) => Center(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-                              child: Column(
-                                children: [
-                                  TextField(
-                                    decoration: InputDecoration(),
-                                  )
-                                ],
-                              ),
-                            ),
+                          builder: (context) => Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(left: 30, top: 30),
+                                child: Text(
+                                  "ADICIONAR TAGS",
+                                  style: GoogleFonts.roboto(
+                                    color: AppStyle.secondColor,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16
+                                  ),
+                                ),
+                              ),Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width,
+                                          decoration: BoxDecoration(
+                                            color: AppStyle.mainColor,
+                                            borderRadius: BorderRadius.circular(12)
+                                          ),
+                                          child: TextButton(
+                                              onPressed: (){
+                                              },
+                                              child: Text(
+                                                "NOVA TAG",
+                                                style: GoogleFonts.roboto(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: AppStyle.secondColor
+                                                ),
+                                                  textAlign: TextAlign.start
+                                              )
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                            ],
                           )
                       );
                     },

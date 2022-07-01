@@ -1,3 +1,4 @@
+import 'package:codeone/quizz/startQuizz.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:codeone/widget/QuestionWidget.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +88,7 @@ class _ExpansionWidState extends State<ExpansionWid> {
                   ),
                   TextButton(onPressed: () {
                     Navigator.push(context, PageTransition(
-                        child: QuestionWidget(),
+                        child: StartQuizz(),
                         type:  PageTransitionType.fade,
                         duration: const Duration(milliseconds: 10)
                     )

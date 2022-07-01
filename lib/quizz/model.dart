@@ -24,7 +24,7 @@ class Option{
 
 final questions = [
   Question(
-    text: "Com base no que foi ensinado, quantos lados tem um triângulo?",
+    text: "Com base no que foi ensinado na aula 1, quantos lados tem um triângulo?",
     options: [
       const Option(text: '3 lados', isCorrect: true),
       const Option(text: '4 lados', isCorrect: false),
