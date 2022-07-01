@@ -1,6 +1,7 @@
 import 'package:codeone/quizz/model.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionWidget extends StatefulWidget {
   const QuestionWidget({Key? key}) : super(key: key);
@@ -42,31 +43,49 @@ class _QuestionWidgetState extends State<QuestionWidget> {
       backgroundColor: AppStyle.mainColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const SizedBox(
-              height: 32,
-            ),
-            Text('Question $_questionsNumber/${questions.length}'),
-            const Divider(thickness: 1,color: Colors.indigo),
-            Expanded(
-                child: PageView.builder(
-                  controller: _controller,
-                  itemCount: questions.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    final _question = questions[index];
-                    return buildQuestion(_question);
-                  },
-                )
-            ),
-            _isLocked ? buildElevatedButton() : const SizedBox.shrink(),
-            const SizedBox(height: 20),
-          ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 80),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                height: MediaQuery.of(context).size.height * 0.5,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)
+                ),
+               child: Column(
+                 children: [
+                   const SizedBox(
+                     height: 32,
+                   ),
+                   Text('Question $_questionsNumber/${questions.length}'),
+                   Expanded(
+                       child: PageView.builder(
+                         controller: _controller,
+                         itemCount: questions.length,
+                         physics: const NeverScrollableScrollPhysics(),
+                         itemBuilder: (context, index) {
+                           final _question = questions[index];
+                           return buildQuestion(_question);
+                         },
+                       )
+                   ),
+                 ],
+               ),
+             ),
+              const SizedBox(height: 20),
+              _isLocked ? Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    height: 60,
+                    child: buildElevatedButton())) : const SizedBox.shrink(),
+              const SizedBox(height: 20),
+
+            ],
+          ),
         ),
-      ),
-    );
+      );
   }
   Column buildQuestion(Question question) {
     return Column(
@@ -77,8 +96,8 @@ class _QuestionWidgetState extends State<QuestionWidget> {
           question.text,
           style: const TextStyle(
               fontSize: 18,
-              fontWeight: FontWeight.w300,
-              color: Colors.indigo
+              fontWeight: FontWeight.w500,
+              color: Colors.black54
           ),
         ),
         const SizedBox(height: 20),
@@ -129,8 +148,17 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             );
           }
         },
+        style: ElevatedButton.styleFrom(
+
+          primary: AppStyle.secondColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        ),
         child: Text(
-          _questionsNumber < questions.length ? "Próxima página" : "Ver o Resultado"
+          _questionsNumber < questions.length ? "Responder" : "Ver o Resultado",
+          style: GoogleFonts.roboto(
+            fontSize: 22,
+            fontWeight: FontWeight.w700
+          ),
         )
     );
   }
