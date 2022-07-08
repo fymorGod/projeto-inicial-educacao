@@ -2,6 +2,9 @@ import 'package:codeone/quizz/model.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+
+import '../pages/bottomNavPages/perfil_page.dart';
 
 class QuestionWidget extends StatefulWidget {
   const QuestionWidget({Key? key}) : super(key: key);
@@ -270,9 +273,136 @@ class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Você acertou $score/${questions.length}'),
+      appBar: AppBar(
+        backgroundColor: AppStyle.secondColor,
+        elevation: 0,
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.search,
+            size: 25,
+            color: Colors.white,
+          ),
+          ),
+
+          IconButton(onPressed: (){}, icon: Icon(Icons.notifications_none_outlined,
+            size: 25,
+            color: Colors.white,
+          ),
+          ),
+          IconButton(onPressed: () => Navigator.push(context, PageTransition(
+              child: PerfilPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 10)
+          )), icon: Icon(Icons.person,
+            size: 25,
+            color: Colors.white,
+          ),
+          ),
+        ],
       ),
+
+      backgroundColor: AppStyle.mainColor,
+      body: Column(
+        children: [
+        Container(
+        height: 50,
+        decoration: BoxDecoration(
+          color: AppStyle.secondColor,
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+          boxShadow: [
+            BoxShadow(
+                color: AppStyle.shadowMainColor,
+                spreadRadius: 2,
+                blurRadius: 1,
+                offset: Offset(0.0, 2.0)
+            ),
+          ],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom:15.0),
+              child: Container(
+                child: Image.asset('assets/images/calculadora.png'),
+              ),
+            ),
+            SizedBox(width: 10.0,),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 15.0),
+              child: Text(
+                "Matemática",
+                style: GoogleFonts.roboto(
+                    fontSize: 22,
+                    color: Colors.white
+                ),
+              ),
+            ),
+            SizedBox(height: 20.0,),
+          ],
+        ),
+      ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 35.0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(18)
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 10),
+                  Image.asset("assets/images/banner.png"),
+                  Center(
+                    child: Text("Quase lá!",
+                    style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey,
+                      fontSize: 18
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text("Vamos tentar novamente?",
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w300,
+                          color: Colors.blueGrey,
+                          fontSize: 20
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15)
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.7,
+            height: 55,
+            child: TextButton(onPressed: (){
+              Navigator.push(context, PageTransition(
+                  child: QuestionWidget(),
+                  type:  PageTransitionType.fade,
+                  duration: const Duration(milliseconds: 10)
+              )
+              );
+            },
+                style: ElevatedButton.styleFrom(
+                  primary: AppStyle.secondColor,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                ),
+                child: Text(
+                  "Ver Classificação",
+                  style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      color: Colors.white
+                  ),)
+            ),
+          ),
+        ]
+      )
     );
   }
 }

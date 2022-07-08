@@ -260,7 +260,9 @@ class _ClassesPageState extends State<ClassesPage> {
                               gradient: LinearGradient(colors: [AppStyle.grientCard, AppStyle.gradientCart2]),
                               borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
                             ),
-                            child: Image.asset('assets/images/calculadora.png',),
+                            child: Image.asset('assets/images/calculadora.png',
+                            height: 350,
+                            ),
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

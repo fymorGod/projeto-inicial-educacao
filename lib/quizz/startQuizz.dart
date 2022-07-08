@@ -128,7 +128,16 @@ class _StartQuizzState extends State<StartQuizz> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 15),
-                        Text("Atividade 1"),
+                        Container(
+                          margin: EdgeInsets.only(left: 15),
+                          child: Text("Atividade 1",
+                          style: GoogleFonts.roboto(
+                            color: Colors.black54,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500
+                          ),
+                          ),
+                        ),
                         SizedBox(height: 15),
                         Image.asset("assets/images/banner.png"),
                         SizedBox(height: 15),

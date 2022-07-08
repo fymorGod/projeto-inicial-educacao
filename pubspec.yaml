@@ -39,8 +39,6 @@ dependencies:
   flutter_clean_calendar: ^1.1.0
   calendar_appbar: ^0.0.6
   flutter_rounded_date_picker: 1.0.0
-  video_player: ^2.4.4
-  youtube_player_flutter: ^8.1.0
   syncfusion_flutter_charts: ^20.1.59
   data_tables: ^1.4.0
   charts_flutter: ^0.12.0
@@ -50,16 +48,27 @@ dependencies:
   auto_size_text: ^3.0.0
   list_tile_switch: ^1.0.0
   boxy: ^2.0.6+1
+  video_player: ^2.4.4
+  youtube_player_flutter: ^8.1.0
+  flutter_vibrate: ^1.3.0
+  responsive_sizer: ^3.0.8
+  editable_image: ^1.1.0
+  flutter_page_view_indicator: ^0.0.5
+  dotted_line: ^3.1.0
+  smooth_page_indicator: ^1.0.0+2
+  animated_text_kit: ^4.2.2
+  flutter_typeahead: ^4.0.0
   dio: ^4.0.6
   enum_to_string: ^2.0.1
   equatable: ^2.0.3
   flutter_hooks: ^0.18.5+1
   hooks_riverpod: ^1.0.4
   html_character_entities: ^1.0.0+1
-  flutter_vibrate: ^1.3.0
-  responsive_sizer: ^3.0.8
-  editable_image: ^1.1.0
   meta: ^1.7.0
+  bottom_bar_with_sheet: ^2.4.0
+  sliding_sheet: ^0.5.2
+  comment_box: ^0.0.17
+  get: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
