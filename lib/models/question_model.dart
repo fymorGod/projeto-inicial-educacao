@@ -25,7 +25,7 @@ class Question extends Equatable {
   ];
 
   factory Question.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    if (map == null);
     return Question(
       category: map['category'] ?? '',
       difficulty: map['difficulty']?? '',

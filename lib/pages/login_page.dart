@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import '../style/app_style.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -35,7 +34,6 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(top: 30.0, bottom: 10.0, left: 30.0, right: 30.0),
                       child: TextField(
                         decoration: InputDecoration(
-
                           fillColor: Colors.white,
                           filled: true,
                           hintText: "753.145.574-01",
@@ -101,7 +99,8 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                               fontSize: 18
-                          ),),
+                            ),
+                          ),
                         ),
                       ),
                     )

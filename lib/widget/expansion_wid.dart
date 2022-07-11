@@ -1,10 +1,10 @@
+import 'package:codeone/quizz/startQuizz.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
 import '../interfaces/atv.dart';
 import '../style/app_style.dart';
-import 'QuestionWidget.dart';
 
 class ExpansionWid extends StatefulWidget {
   const ExpansionWid({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _ExpansionWidState extends State<ExpansionWid> {
 
   @override
   void initState(){
-    controller = VideoPlayerController.network("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4");
+    controller = VideoPlayerController.network("https://fast.player.liquidplatform.com/pApiv2/embed/7d3033817d74f7456a79aefb0f81d7ba/884acec72c6bfa851ebd11efdb024527");
     _initializeVideoPlayerFuture = controller!.initialize();
     controller!.setLooping(true);
     controller!.setVolume(1.0);
@@ -459,7 +459,7 @@ class _ExpansionWidState extends State<ExpansionWid> {
                       ),
                       TextButton(onPressed: () {
                         Navigator.push(context, PageTransition(
-                            child: QuestionWidget(),
+                            child: StartQuizz(),
                             type:  PageTransitionType.fade,
                             duration: const Duration(milliseconds: 10)
                         )

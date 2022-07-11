@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../style/app_style.dart';
 import '../config_page.dart';
-import '../login_page.dart';
+import '../minhas_notas.dart';
+import '../quali_page.dart';
 
 class PerfilPage extends StatefulWidget {
   const PerfilPage({Key? key}) : super(key: key);
@@ -247,7 +248,7 @@ class _PerfilPageState extends State<PerfilPage> {
                     Container(
                       alignment: Alignment.center,
                       child: ElevatedButton(onPressed: () => Navigator.push(context, PageTransition(
-                          child: const LoginPage(),
+                          child: const MinhasNotasPage(),
                           type: PageTransitionType.fade,
                           duration: const Duration(milliseconds: 10)
                       )),
@@ -263,7 +264,7 @@ class _PerfilPageState extends State<PerfilPage> {
                       alignment: Alignment.center,
                       child: ElevatedButton(
                           onPressed: () => Navigator.push(context, PageTransition(
-                              child: const LoginPage(),
+                              child: const QualiPage(),
                               type: PageTransitionType.fade,
                               duration: const Duration(milliseconds: 10)
                           )),

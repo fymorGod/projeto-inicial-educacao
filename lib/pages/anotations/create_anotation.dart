@@ -29,9 +29,7 @@ class CreateAnotation extends StatefulWidget {
 
 class _CreateAnotationState extends State<CreateAnotation> {
 
-  final controller = Get.put(
-      TagStateController()
-  );
+  final controller = Get.put(TagStateController());
   final textController = TextEditingController();
 
   @override

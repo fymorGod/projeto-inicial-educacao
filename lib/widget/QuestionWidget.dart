@@ -1,4 +1,5 @@
 import 'package:codeone/quizz/model.dart';
+import 'package:codeone/quizz/startQuizz.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -382,7 +383,7 @@ class ResultPage extends StatelessWidget {
             height: 55,
             child: TextButton(onPressed: (){
               Navigator.push(context, PageTransition(
-                  child: QuestionWidget(),
+                  child: StartQuizz(),
                   type:  PageTransitionType.fade,
                   duration: const Duration(milliseconds: 10)
               )
