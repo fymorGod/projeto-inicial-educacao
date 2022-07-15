@@ -1,5 +1,6 @@
 import 'package:codeone/pages/bottomNavPages/perfil_page.dart';
 import 'package:codeone/widget/expansion_wid.dart';
+import 'package:codeone/widget/teste_video.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -92,7 +93,9 @@ class _ListaAtividadesState extends State<ListaAtividades> {
             ),
           ),
           SingleChildScrollView(
-            child: ExpansionWid(),
+            child: Container(
+              height: 300,
+                child: ExpansionWid()),
           ),
         ],
       ),
