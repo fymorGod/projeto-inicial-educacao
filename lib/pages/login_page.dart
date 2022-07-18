@@ -1,3 +1,5 @@
+import 'package:codeone/ProgessHUD.dart';
+import 'package:codeone/api/api_service.dart';
 import 'package:codeone/models/login_model.dart';
 import 'package:codeone/pages/bar_item_page.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +19,24 @@ class _LoginPageState extends State<LoginPage> {
   final scaffoldkey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> globalFormkey = new GlobalKey<FormState>();
   late LoginRequestModel requestModel;
+  bool isApiCallProcess = false;
 
   @override
   void initState(){
     super.initState();
     requestModel = new LoginRequestModel();
   }
+  @override
+  Widget build(BuildContext context){
+    return ProgressHUD(
+        child: _uiSteup(context),
+        inAsyncCall: isApiCallProcess,
+        opacity: 0.3,
+    );
+  }l
 
   @override
-  Widget build(BuildContext context) {
+  Widget _uiSteup(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppStyle.secondColor,
@@ -99,24 +110,31 @@ class _LoginPageState extends State<LoginPage> {
                         width: constraints.maxWidth * 0.70,
                         height: constraints.maxHeight * 0.07,
                         child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(context, PageTransition(
-                                child: BarItemPage(),
+                          onPressed: () {
+                            if(validateAndSave()){
+                              setState(() {
+                                isApiCallProcess = true;
+                              });
+                              APIService apiService = new APIService();
+                              apiService.login(requestModel).then((value){
+                                setState((){
+                                  isApiCallProcess = false;
+                                });
+                                if(value.token.isNotEmpty){
+                                  Navigator.push(context, PageTransition(
+                                      child: BarItemPage(),
                                 type:  PageTransitionType.fade,
                                 duration: const Duration(milliseconds: 10)
-                            )
-                            );
+                                    )
+                                  );
+                                }
+                              });
+                              print(requestModel.toJson());
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF364FC7),
                           ),
-                          child: Container(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if(validateAndSave()){
-                                  print(requestModel.toJson());
-                                }
-                              },
                               child: Text("Entrar", style: GoogleFonts.roboto(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
@@ -124,8 +142,6 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
-                          ),
-                        ),
                       )
                     ],
                   ),
