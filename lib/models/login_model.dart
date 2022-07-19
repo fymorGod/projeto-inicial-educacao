@@ -6,26 +6,27 @@ class LoginResponseModel {
     required this.token,
     required this.error
   });
+
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
-        token: json['token'] != null ? json['token']: '',
-        error: json['error'] != null ? json['error']: ''
+        token: json['token'],
+        error: json['error']
     );
   }
 }
 
 class LoginRequestModel {
-  String? mat;
-  String? password;
+  late final String mat;
+  late final String password;
 
   LoginRequestModel({
-    this.mat,
-    this.password
+    required this.mat,
+    required this.password
   });
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
-      'mat': mat?.trim(), 'password': password?.trim(),
+      'mat': mat!.trim(), 'password': password!.trim(),
     };
     return map;
   }

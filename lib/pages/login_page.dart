@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState(){
     super.initState();
-    requestModel = new LoginRequestModel();
+    requestModel = new LoginRequestModel(mat: '', password: '');
   }
   @override
   Widget build(BuildContext context){
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
         inAsyncCall: isApiCallProcess,
         opacity: 0.3,
     );
-  }l
+  }
 
   @override
   Widget _uiSteup(BuildContext context) {
@@ -69,14 +69,14 @@ class _LoginPageState extends State<LoginPage> {
                             border: UnderlineInputBorder(
                                 borderRadius:BorderRadius.circular(8.0)),
                           ),
-                          onSaved: (input) => requestModel.mat = input,
+                          onSaved: (input) => requestModel.mat = input!,
                           obscureText: false,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, left: 30.0, right: 30.0),
                         child: TextFormField(
-                          onSaved: (input) => requestModel.password = input,
+                          onSaved: (input) => requestModel.password = input!,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,

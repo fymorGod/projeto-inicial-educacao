@@ -4,7 +4,7 @@ import 'dart:convert';
 
 class APIService {
   Future<LoginResponseModel> login(LoginRequestModel requestModel) async {
-    final url = Uri.parse('https://192.168.6.20:');
+    final url = Uri.parse('https://192.168.6.20:3010');
 
     final response = await http.post(url, body: requestModel.toJson());
     if (response.statusCode == 200 || response.statusCode == 400) {
