@@ -1,11 +1,15 @@
 import 'package:codeone/pages/bottomNavPages/conquistas.dart';
 import 'package:codeone/pages/home_page.dart';
+import 'package:codeone/pages/login_page.dart';
+import 'package:elegant_notification/elegant_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:codeone/style/app_style.dart';
 import 'package:codeone/pages/bottomNavPages/anotations_page.dart';
 import 'package:codeone/pages/bottomNavPages/calander_page.dart';
 import 'package:codeone/pages/bottomNavPages/classes_page.dart';
-import 'package:codeone/pages/bottomNavPages/trophies_page.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class BarItemPage extends StatefulWidget {
   const BarItemPage({Key? key}) : super(key: key);
@@ -15,6 +19,36 @@ class BarItemPage extends StatefulWidget {
 }
 
 class _BarItemPageState extends State<BarItemPage> {
+  @override
+  void initState(){
+    super.initState();
+    tokenExist().then((value) {
+      if(value){
+        ElegantNotification.success(
+            title:  Text("Hi!"),
+            description:  Text("Login sucess!")
+        ).show(context);
+      } else {
+        Navigator.pushReplacement(
+            context,
+            PageTransition(
+                child: LoginPage(),
+                type: PageTransitionType.fade,
+                duration: const Duration(milliseconds: 10)
+            )
+        );
+      }
+    });
+  }
+
+  Future<bool> tokenExist() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    if(sharedPreferences.getString('token') == null){
+      return false;
+    } else {
+      return true;
+    }
+  }
   List pages = [
     HomePage(),
     AnotationPage(),

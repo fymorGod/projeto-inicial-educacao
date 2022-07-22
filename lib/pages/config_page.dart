@@ -1,8 +1,10 @@
 import 'package:codeone/pages/idioma_page.dart';
+import 'package:codeone/pages/login_page.dart';
 import 'package:codeone/pages/password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../style/app_style.dart';
 
 class ConfigPage extends StatefulWidget {
@@ -151,14 +153,22 @@ class _ConfigPageState extends State<ConfigPage> {
                                 Container(
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.center,
-                                  child: ElevatedButton(onPressed: () => Navigator.push(context, PageTransition(
-                                      child: const ConfigPage(),
-                                      type: PageTransitionType.fade,
-                                      duration: const Duration(milliseconds: 10)
-                                  )),
+                                  child: ElevatedButton(
+                                      onPressed: () async {
+                                        bool exit = await logout();
+                                        if(exit) {
+                                          Navigator.push(context, PageTransition(
+                                              child: const LoginPage(),
+                                              type: PageTransitionType.fade,
+                                              duration: const Duration(milliseconds: 10)
+                                            )
+                                          );
+                                        }
+                                      },
                                       style: ElevatedButton.styleFrom(
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                                        fixedSize: Size(350, 50), primary: Color(0xff00A1A1),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18)),
+                                          fixedSize: Size(350, 50), primary: Color(0xff00A1A1),
                                       ),
                                       child: Text('Sair', style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),)),
                                 ),
@@ -302,4 +312,11 @@ class _ConfigPageState extends State<ConfigPage> {
       ),
     );
   }
+
+  Future<bool> logout() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.clear();
+    return true;
+  }
+
 }

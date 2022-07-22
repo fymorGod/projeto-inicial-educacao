@@ -1,9 +1,9 @@
+import 'package:codeone/pages/lista_atividades.dart';
+import 'package:codeone/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../style/app_style.dart';
-import '../lista_atividades.dart';
-import '../login_page.dart';
 
 class ClassesPage extends StatefulWidget {
   const ClassesPage({Key? key}) : super(key: key);
@@ -585,6 +585,7 @@ class _ClassesPageState extends State<ClassesPage> {
                         ),
                         SizedBox(height: 10.0,),
                         Container(
+                          padding: EdgeInsets.only(left: 25),
                           height: 165,
                           child: Center(
                             child: ListView.builder(
@@ -663,6 +664,7 @@ class _ClassesPageState extends State<ClassesPage> {
                           ),
                         ),
                         Container(
+                          padding: EdgeInsets.only(left: 25),
                           height: 165,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -674,6 +676,7 @@ class _ClassesPageState extends State<ClassesPage> {
                                 height: 125,
                                 width: 170,
                                 decoration: BoxDecoration(
+                                    gradient: LinearGradient(colors: [Colors.deepPurple, Colors.deepPurpleAccent]),
                                     borderRadius: BorderRadius.circular(8),
                                     color: Colors.white
                                 ),
@@ -683,48 +686,46 @@ class _ClassesPageState extends State<ClassesPage> {
                                       padding: EdgeInsets.all(0.0),
                                       primary: Colors.white
                                   ),
-                                  child: Container(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 300,
-                                          height: 100,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(colors: [Color(0xFFACE8E8), Color(0xFF18A1A1)]),
-                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 300,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(colors: [Color(0xFFD2CFFA), Color(0xFF615AD0)]),
+                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
+                                        ),
+                                        child: Image.asset('assets/images/portugues.png',),
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10.0),
+                                            padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                            child: Text(
+                                                "Português",
+                                                style: GoogleFonts.roboto(
+                                                    color: Colors.black54,
+                                                    fontWeight: FontWeight.bold
+                                                )
+                                            ),
                                           ),
-                                          child: Image.asset('assets/images/geografia.png',),
-                                        ),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(top: 10.0),
-                                              padding: EdgeInsets.symmetric(horizontal: 10.0),
-                                              child: Text(
-                                                  "Geografia",
-                                                  style: GoogleFonts.roboto(
-                                                      color: Colors.black54,
-                                                      fontWeight: FontWeight.bold
-                                                  )
-                                              ),
+                                          SizedBox(height: 5.0,),
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 12.0),
+                                            child: Text(
+                                                "19 aulas",
+                                                style: GoogleFonts.roboto(
+                                                    color: Colors.black26,
+                                                    fontSize: 11
+                                                )
                                             ),
-                                            SizedBox(height: 5.0,),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(horizontal: 12.0),
-                                              child: Text(
-                                                  "19 aulas",
-                                                  style: GoogleFonts.roboto(
-                                                      color: Colors.black26,
-                                                      fontSize: 11
-                                                  )
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                   onPressed: (){
                                     Navigator.push(context, PageTransition(
@@ -739,82 +740,7 @@ class _ClassesPageState extends State<ClassesPage> {
                           ),
                         ),
                         Container(
-                          height: 165,
-                          child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.only(
-                                  left: MediaQuery.of(context).size.width * 0.000,
-                                  right: MediaQuery.of(context).size.width * 0.000),
-                              itemCount: 2,
-                              itemBuilder: (context, index) => Container(
-                                height: 125,
-                                width: 170,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: Colors.white
-                                ),
-                                margin: EdgeInsets.all(5),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      padding: EdgeInsets.all(0.0),
-                                      primary: Colors.white
-                                  ),
-                                  child: Container(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 300,
-                                          height: 100,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(colors: [Color(0xFFFD9939), Color(0xFFFDB368)]),
-                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
-                                          ),
-                                          child: Image.asset('assets/images/ciencias.png',),
-                                        ),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(top: 10.0),
-                                              padding: EdgeInsets.symmetric(horizontal: 10.0),
-                                              child: Text(
-                                                  "Ciências",
-                                                  style: GoogleFonts.roboto(
-                                                      color: Colors.black54,
-                                                      fontWeight: FontWeight.bold
-                                                  )
-                                              ),
-                                            ),
-                                            SizedBox(height: 5.0,),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(horizontal: 12.0),
-                                              child: Text(
-                                                  "19 aulas",
-                                                  style: GoogleFonts.roboto(
-                                                      color: Colors.black26,
-                                                      fontSize: 11
-                                                  )
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  onPressed: (){
-                                    Navigator.push(context, PageTransition(
-                                        child: ListaAtividades(),
-                                        type:  PageTransitionType.fade,
-                                        duration: const Duration(milliseconds: 10)
-                                    )
-                                    );
-                                  },
-                                ),
-                              )
-                          ),
-                        ),
-                        Container(
+                          padding: EdgeInsets.only(left: 25),
                           height: 165,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -891,6 +817,7 @@ class _ClassesPageState extends State<ClassesPage> {
                           ),
                         ),
                         Container(
+                          padding: EdgeInsets.only(left: 25),
                           height: 165,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -919,10 +846,10 @@ class _ClassesPageState extends State<ClassesPage> {
                                           width: 300,
                                           height: 100,
                                           decoration: BoxDecoration(
-                                            gradient: LinearGradient(colors: [Color(0xFFD2CFFA), Color(0xFF615AD0)]),
+                                            gradient: LinearGradient(colors: [Color(0xFFFD9939), Color(0xFFFDB368)]),
                                             borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
                                           ),
-                                          child: Image.asset('assets/images/portugues.png',),
+                                          child: Image.asset('assets/images/ciencias.png',),
                                         ),
                                         Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -931,7 +858,7 @@ class _ClassesPageState extends State<ClassesPage> {
                                               margin: EdgeInsets.only(top: 10.0),
                                               padding: EdgeInsets.symmetric(horizontal: 10.0),
                                               child: Text(
-                                                  "Português",
+                                                  "Ciências",
                                                   style: GoogleFonts.roboto(
                                                       color: Colors.black54,
                                                       fontWeight: FontWeight.bold
@@ -967,6 +894,84 @@ class _ClassesPageState extends State<ClassesPage> {
                           ),
                         ),
                         Container(
+                          padding: EdgeInsets.only(left: 25),
+                          height: 165,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width * 0.000,
+                                  right: MediaQuery.of(context).size.width * 0.000),
+                              itemCount: 2,
+                              itemBuilder: (context, index) => Container(
+                                height: 125,
+                                width: 170,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: Colors.white
+                                ),
+                                margin: EdgeInsets.all(5),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.all(0.0),
+                                      primary: Colors.white
+                                  ),
+                                  child: Container(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: 300,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(colors: [Color(0xFFACE8E8), Color(0xFF18A1A1)]),
+                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
+                                          ),
+                                          child: Image.asset('assets/images/geografia.png',),
+                                        ),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.only(top: 10.0),
+                                              padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                              child: Text(
+                                                  "Geografia",
+                                                  style: GoogleFonts.roboto(
+                                                      color: Colors.black54,
+                                                      fontWeight: FontWeight.bold
+                                                  )
+                                              ),
+                                            ),
+                                            SizedBox(height: 5.0,),
+                                            Container(
+                                              padding: EdgeInsets.symmetric(horizontal: 12.0),
+                                              child: Text(
+                                                  "19 aulas",
+                                                  style: GoogleFonts.roboto(
+                                                      color: Colors.black26,
+                                                      fontSize: 11
+                                                  )
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  onPressed: (){
+                                    Navigator.push(context, PageTransition(
+                                        child: ListaAtividades(),
+                                        type:  PageTransitionType.fade,
+                                        duration: const Duration(milliseconds: 10)
+                                    )
+                                    );
+                                  },
+                                ),
+                              )
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: 25),
                           height: 165,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -1047,6 +1052,7 @@ class _ClassesPageState extends State<ClassesPage> {
                   ),
                 );
               }
+
             }
         )
     );
